@@ -3,89 +3,125 @@
 <head> 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Function in Python | Class 12 Computer Science CBSE | SinghClasses</title>
-  <meta name="description" content="Master Functions in Python for CBSE Class 12 Computer Science with expert coaching by Rohit Singh. Access PDF notes, one-shot video lectures, and study materials at SinghClasses.in.">
-  <meta name="keywords" content="Function in Python, Class 12 Computer Science CBSE, Python Functions, Rohit Singh, SinghClasses, CBSE CS Notes, Python Programming">
-  <meta name="author" content="Rohit Singh">
+  <title>Events & Guidelines — Samarthāyam 2.0 | The Samarth School</title>
+  <meta name="description" content="Events, Rules, and Guidelines for Samarthāyam 2.0 Inter-School Competition at The Samarth School.">
+  <meta name="keywords" content="Samarthāyam 2.0, Rules and Guidelines, The Samarth School, Inter-School Competition">
+  <meta name="author" content="The Samarth School">
   
   <link rel="icon" href="assets/images/favicon/favicon.ico" type="image/x-icon">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      navy: {
+                          800: '#102A43',
+                          900: '#0B192C',
+                          950: '#030A16',
+                      },
+                      gold: {
+                          400: '#FBBF24',
+                          500: '#F59E0B',
+                          600: '#D97706',
+                      },
+                      accentRed: {
+                          600: '#DC2626',
+                          700: '#B91C1C',
+                      }
+                  }
+              }
+          }
+      };
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="../../../assets/css/style.css">
-  <link rel="stylesheet" href="../../../assets/css/dashboard.css">
-  <link rel="stylesheet" href="../../../assets/css/notes.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../interSchool/assets/css/notes.css">
+  <style>
+      body { font-family: "Plus Jakarta Sans", sans-serif; }
+  </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-gold-500 selection:text-navy-950">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-navy-950 text-slate-300 text-xs py-1.5 px-4 border-b border-slate-800">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+          <div class="flex flex-wrap items-center gap-4 text-[11px] sm:text-xs"></div>
+          <div class="flex items-center gap-4">
+              <a href="mailto:infowr@thesamarthschool.edu.in" class="hover:text-gold-400 transition">infowr@thesamarthschool.edu.in</a>
+          </div>
+      </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+          <div class="flex items-center space-x-3.5">
+              <img src="https://thesamarthschool.edu.in/wp-content/uploads/2023/08/logo1-1-1.png" alt="The Samarth School Logo" class="h-12 sm:h-14 w-auto object-contain" />
+              <div>
+                  <span class="block text-base sm:text-lg font-extrabold text-navy-900 tracking-tight leading-none">THE SAMARTH SCHOOL</span>
+                  <span class="text-[10px] sm:text-[11px] text-accentRed-600 font-bold tracking-wide uppercase mt-1 block">Wazirabad Road • "Learn to Lead"</span>
+              </div>
+          </div>
+          <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-700 items-center">
+              <a href="index.html" class="hover:text-gold-600 transition-colors py-1">Home</a>
+              <a href="rules.html" class="text-gold-600 font-bold border-b-2 border-gold-500 py-1">Events and Guidelines</a>
+              <a href="gallery.html" class="hover:text-gold-600 transition-colors py-1">Event Gallery</a>
+              <a href="result.html" class="hover:text-gold-600 transition-colors py-1">Result</a>
+              <a href="https://sites.google.com/thesamarthschool.edu.in/samarthayam/home?authuser=5" class="px-4 py-2 bg-navy-900 text-gold-400 rounded-lg hover:bg-navy-800 transition shadow-sm font-bold">Samarthāyam 1.0</a>
+          </nav>
+      </div>
+  </header>
 
   <canvas id="ambient-canvas"></canvas>
 
-  <header class="unified-workspace-header" role="banner">
-    
-    <div class="header-left-group">
-   <button class="back-btn" onclick="window.location.href='../../../index.html'" aria-label="Go Back">
-        <svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" width="18"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        Back
-      </button>
-        <div class="chapter-capsule" 
-             id="current-chapter" 
-             data-drive-id="1B4ehkw0hhLWe9cO_nE5j0yfm49Kh1cv6"
-             data-yt-link="https://youtu.be/CWpbsZaWT5E">
-            Function in Python
-        </div>
-    </div>
-
-    <div class="header-right-group">
-        <button class="app-btn app-btn-outline" onclick="downloadPDF()">
-            <svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg> 
-            Download
-        </button>
-
-        <button class="app-btn app-btn-yt" id="yt-trigger-btn" onclick="handleYTClick()">
-            <svg fill="currentColor" height="16" viewBox="0 0 24 24" width="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            One Shot
-        </button>
-
-        <button class="app-btn hide-on-mobile" onclick="toggleFullScreen()">
-            <svg fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="15"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-            Fullscreen
-        </button>
-
-        <div class="timer-display timer-sync mobile-timer">00:00:00</div>
-        <div class="tracking-eyes-container mobile-eyes">
-            <div class="eye-ball"><div class="pupil"></div></div>
-            <div class="eye-ball"><div class="pupil"></div></div>
-        </div>
-    </div>
-
-  </header>
-
+  <!-- Document Viewer Workspace -->
   <main class="main-content">
-    <div class="pdf-viewer-container" id="viewer-container">
+    <div class="pdf-viewer-container" id="viewer-container" style="width: 100%; min-height: 1300px; height: 141.4vw; max-height: 1600px;">
         <div class="pdf-loading-overlay" id="loading-overlay">
             <div class="loading-spinner-ring"></div>
             <div class="loading-text">Fetching Document...</div>
         </div>
-        <iframe id="pdf-frame" src="" onload="hideLoader()" allowfullscreen="true"></iframe>
+        <iframe id="pdf-frame" src="https://drive.google.com/file/d/1Kws-5VTGIvWQM70fcPKyuxPRnfO_BlOe/preview" onload="hideLoader()" allowfullscreen="true" style="width: 100%; height: 100%;"></iframe>
     </div>
   </main>
 
-  <footer class="unified-workspace-footer">
-      <div>© <span id="current-year">2026</span> SinghClasses.in</div>
-      
-      <div class="footer-tools">
-          <span id="motivation-text" class="motivation-text">Best of luck!</span>
-          
-          <div class="timer-display timer-sync" id="study-timer">00:00:00</div>
-          
-          <div class="tracking-eyes-container desktop-eyes">
-              <div class="eye-ball"><div class="pupil"></div></div>
-              <div class="eye-ball"><div class="pupil"></div></div>
+  <!-- Detailed Site Footer -->
+  <footer id="contact" class="bg-navy-950 text-slate-400 py-8 border-t-2 border-gold-500/30">
+      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6 mb-5 pb-5 border-b border-slate-800">
+          <div>
+              <h3 class="text-base font-bold text-white mb-2">The Samarth School</h3>
+              <p class="text-xs text-slate-400 leading-relaxed mb-2.5">Main Wazirabad Road, Adjacent to West Jyoti Nagar, Delhi – 110093</p>
+              <div class="text-xs space-y-0.5">
+              </div>
+          </div>
+          <div>
+              <h3 class="text-base font-bold text-white mb-2">Contact Us</h3>
+              <ul class="text-xs space-y-1.5">
+                  <li><strong class="text-slate-300">Enquiry Phone:</strong> +91 8287555045</li>
+                  <li><strong class="text-slate-300">Admission Phone:</strong> 8826546178</li>
+                  <li><strong class="text-slate-300">Landline:</strong> 011-35005440</li>
+                  <li><strong class="text-slate-300">Email:</strong> <a href="mailto:infowr@thesamarthschool.edu.in" class="text-gold-400 hover:underline">infowr@thesamarthschool.edu.in</a></li>
+              </ul>
+          </div>
+          <div>
+              <h3 class="text-base font-bold text-white mb-2">Quick Links & Socials</h3>
+              <div class="flex flex-col space-y-1.5 text-xs font-semibold mb-2.5">
+                  <a href="https://thesamarthschool.edu.in" target="_blank" class="hover:text-white transition">› Official Website</a>
+              </div>
+              <div class="flex items-center space-x-2.5 text-xs font-bold text-white">
+                  <a href="https://www.facebook.com/thesamarthschool" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">Facebook</a>
+                  <a href="https://www.instagram.com/thesamarth_school/" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">Instagram</a>
+                  <a href="https://youtube.com/@thesamarthschoolloniwr" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">YouTube</a>
+              </div>
           </div>
       </div>
+      <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500">© 2026 The Samarth School - Wazirabad Road. All rights reserved.</div>
   </footer>
 
+  <!-- YouTube Modal -->
   <div id="yt-modal" class="yt-modal-overlay">
       <div class="yt-modal-card">
           <div class="modal-icon-wrapper">
@@ -104,9 +140,6 @@
       🚧 We are currently preparing this material. Coming soon!
   </div>
 
-  <script src="../../../script.js"></script>
-  <script src="../../../assets/js/dashboard.js"></script>
-  <script src="../../../assets/js/style.js"></script>
-  <script src="../../../assets/js/notes.js"></script>
+  <script src="../interSchool/assets/js/notes.js"></script>
 </body>
 </html>

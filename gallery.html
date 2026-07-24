@@ -1,386 +1,308 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery & Slideshow — Glimpses of Samarthāyam 1.0 | The Samarth School</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            800: '#102A43',
-                            900: '#0B192C',
-                            950: '#030A16',
-                        },
-                        gold: {
-                            400: '#FBBF24',
-                            500: '#F59E0B',
-                            600: '#D97706',
-                        },
-                        accentRed: {
-                            600: '#DC2626',
-                            700: '#B91C1C',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .font-serif-heading { font-family: 'Playfair Display', serif; }
-    </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Gallery — Samarthāyam 2.0 | The Samarth School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{navy:{800:'#102A43',900:'#0B192C',950:'#030A16'},gold:{400:'#FBBF24',500:'#F59E0B',600:'#D97706'},accentRed:{600:'#DC2626',700:'#B91C1C'}}}}};</script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body{font-family:"Plus Jakarta Sans",sans-serif;}</style>
 </head>
-<body class="bg-navy-950 text-slate-100 antialiased selection:bg-gold-500 selection:text-navy-950">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-gold-500 selection:text-navy-950">
 
-    <!-- Top Accent Bar -->
-    <div class="h-1.5 w-full bg-gradient-to-r from-navy-900 via-accentRed-600 to-gold-500"></div>
-
-    <!-- Header Navigation -->
-    <header class="sticky top-0 z-40 bg-navy-950/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-accentRed-600 text-gold-400 font-extrabold flex items-center justify-center font-serif-heading text-lg shadow-lg shadow-accentRed-600/20 border border-gold-500/30">
-                    TS
-                </div>
-                <div>
-                    <span class="block font-serif-heading text-base sm:text-lg font-bold text-white leading-none tracking-wide">THE SAMARTH SCHOOL</span>
-                    <span class="text-[10px] font-semibold tracking-wider text-accentRed-600 uppercase mt-1 block">Dignity • Peace • Unity • Freedom</span>
-                </div>
-            </a>
-            
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
-                <a href="#" class="hover:text-gold-400 transition-colors py-1">Home</a>
-                <a href="#" class="hover:text-gold-400 transition-colors py-1">Events & Guidelines</a>
-                <a href="#" class="text-gold-400 border-b-2 border-gold-500 pb-1 font-bold">Gallery</a>
-                <a href="#" class="px-5 py-2 rounded-lg bg-gold-500 text-navy-950 hover:bg-gold-400 transition-all font-bold shadow-md shadow-gold-500/10">Results</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Page Header Title -->
-    <section class="pt-12 pb-6 text-center max-w-4xl mx-auto px-4">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold tracking-wider uppercase mb-4 backdrop-blur-md">
-            📸 Interactive Photo Log • 2025
-        </span>
-        <h1 class="text-4xl sm:text-6xl font-extrabold font-serif-heading text-white tracking-tight">
-            Glimpses Of <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-amber-200 to-accentRed-600 italic">Samarthāyam 1.0</span>
-        </h1>
-        <p class="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">
-            Click any photo below to view the full-screen slideshow presentation.
-        </p>
-    </section>
-
-    <!-- FEATURED HERO SLIDESHOW CAROUSEL -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
-        <div class="relative w-full h-[320px] sm:h-[480px] lg:h-[540px] rounded-3xl overflow-hidden shadow-2xl border border-gold-500/30 group" id="heroCarousel">
-            
-            <!-- Slide Item 1 -->
-            <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-700 ease-in-out">
-                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Grand Finale Winners">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
-                <div class="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-accentRed-600 text-white uppercase tracking-wider">Championship Highlight</span>
-                    <h2 class="text-2xl sm:text-4xl font-serif-heading font-bold text-white mt-2">Samarthāyam 1.0 Trophy Presentation</h2>
-                    <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-xl">Celebrating winning schools and overall trophy recipients with dignity and joy.</p>
-                </div>
-            </div>
-
-            <!-- Slide Item 2 -->
-            <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none">
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Art Competition">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
-                <div class="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-500 text-navy-950 uppercase tracking-wider">Creativity Workshop</span>
-                    <h2 class="text-2xl sm:text-4xl font-serif-heading font-bold text-white mt-2">Live Painting & Craft Session</h2>
-                    <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-xl">Students expressing artistic excellence through intricate, colorful creations.</p>
-                </div>
-            </div>
-
-            <!-- Slide Item 3 -->
-            <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none">
-                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Award Ceremony">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
-                <div class="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10">
-                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-500 text-navy-950 uppercase tracking-wider">Felicitation</span>
-                    <h2 class="text-2xl sm:text-4xl font-serif-heading font-bold text-white mt-2">Dignitaries & Guest Honors</h2>
-                    <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-xl">Acknowledging our panel of esteemed judges and guest speakers.</p>
-                </div>
-            </div>
-
-            <!-- Carousel Controls -->
-            <button onclick="changeHeroSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-navy-950/70 hover:bg-gold-500 hover:text-navy-950 text-white border border-gold-500/40 flex items-center justify-center transition-all opacity-80 group-hover:opacity-100">
-                ❮
-            </button>
-            <button onclick="changeHeroSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-navy-950/70 hover:bg-gold-500 hover:text-navy-950 text-white border border-gold-500/40 flex items-center justify-center transition-all opacity-80 group-hover:opacity-100">
-                ❯
-            </button>
-
-            <!-- Carousel Indicators -->
-            <div class="absolute top-6 right-6 flex gap-2">
-                <button onclick="setHeroSlide(0)" class="hero-dot w-3 h-3 rounded-full bg-gold-500 transition-all"></button>
-                <button onclick="setHeroSlide(1)" class="hero-dot w-3 h-3 rounded-full bg-white/40 transition-all"></button>
-                <button onclick="setHeroSlide(2)" class="hero-dot w-3 h-3 rounded-full bg-white/40 transition-all"></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- School Values Ribbon -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
-        <div class="bg-navy-900 border border-gold-500/30 rounded-2xl p-6 text-center shadow-xl">
-            <span class="text-xs font-bold text-gold-400 uppercase tracking-widest block mb-3">Our Core Pillars</span>
-            <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-sm sm:text-base font-bold text-slate-100 uppercase tracking-wider">
-                <span class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-gold-500 ring-4 ring-gold-500/20"></span> Dignity</span>
-                <span class="hidden sm:inline text-slate-700">•</span>
-                <span class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-accentRed-600 ring-4 ring-accentRed-600/20"></span> Peace</span>
-                <span class="hidden sm:inline text-slate-700">•</span>
-                <span class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-gold-500 ring-4 ring-gold-500/20"></span> Unity</span>
-                <span class="hidden sm:inline text-slate-700">•</span>
-                <span class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-accentRed-600 ring-4 ring-accentRed-600/20"></span> Freedom</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Grid -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- Card 1 -->
-            <div onclick="openLightbox(0)" class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-slate-800 hover:border-gold-500/50 transition-all duration-300 shadow-xl cursor-pointer">
-                <div class="aspect-[4/3] overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop" alt="Students engaged in art competition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-navy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="px-4 py-2 bg-gold-500 text-navy-950 font-bold rounded-lg text-xs shadow-lg">🔍 Expand Slideshow</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <span class="text-[11px] font-bold text-gold-400 uppercase tracking-wider bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20 inline-block">Art & Creativity</span>
-                    <h3 class="font-bold text-white text-lg mt-3 group-hover:text-gold-400 transition-colors">Live Painting & Craft Workshop</h3>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Students showcasing hands-on artistic techniques during the competition session.</p>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div onclick="openLightbox(1)" class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-slate-800 hover:border-gold-500/50 transition-all duration-300 shadow-xl cursor-pointer">
-                <div class="aspect-[4/3] overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop" alt="Student displaying artwork" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-navy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="px-4 py-2 bg-gold-500 text-navy-950 font-bold rounded-lg text-xs shadow-lg">🔍 Expand Slideshow</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <span class="text-[11px] font-bold text-accentRed-600 uppercase tracking-wider bg-accentRed-600/10 px-3 py-1 rounded-full border border-accentRed-600/20 inline-block">Exhibition</span>
-                    <h3 class="font-bold text-white text-lg mt-3 group-hover:text-gold-400 transition-colors">Artwork Presentation</h3>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Participant presenting an original landscape painting to the evaluation panel.</p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div onclick="openLightbox(2)" class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-slate-800 hover:border-gold-500/50 transition-all duration-300 shadow-xl cursor-pointer">
-                <div class="aspect-[4/3] overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop" alt="Felicitation Ceremony" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-navy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="px-4 py-2 bg-gold-500 text-navy-950 font-bold rounded-lg text-xs shadow-lg">🔍 Expand Slideshow</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <span class="text-[11px] font-bold text-gold-400 uppercase tracking-wider bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20 inline-block">Award Ceremony</span>
-                    <h3 class="font-bold text-white text-lg mt-3 group-hover:text-gold-400 transition-colors">Guest Felicitation & Trophy Presentation</h3>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">School dignitaries and guests honoring top achievers with mementos.</p>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div onclick="openLightbox(3)" class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-slate-800 hover:border-gold-500/50 transition-all duration-300 shadow-xl cursor-pointer">
-                <div class="aspect-[4/3] overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Student drawing in classroom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-navy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="px-4 py-2 bg-gold-500 text-navy-950 font-bold rounded-lg text-xs shadow-lg">🔍 Expand Slideshow</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider bg-slate-800 px-3 py-1 rounded-full border border-slate-700 inline-block">Classroom Activity</span>
-                    <h3 class="font-bold text-white text-lg mt-3 group-hover:text-gold-400 transition-colors">On-Spot Illustration Contest</h3>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">Young minds deep in focus creating detailed sketches under allotted time limits.</p>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div onclick="openLightbox(4)" class="group relative rounded-2xl overflow-hidden bg-navy-900 border border-slate-800 hover:border-gold-500/50 transition-all duration-300 shadow-xl sm:col-span-2 cursor-pointer">
-                <div class="aspect-[16/9] overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1200&auto=format&fit=crop" alt="Winning team group photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-navy-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="px-4 py-2 bg-gold-500 text-navy-950 font-bold rounded-lg text-xs shadow-lg">🔍 Expand Slideshow</span>
-                    </div>
-                </div>
-                <div class="p-8">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-[11px] font-extrabold text-accentRed-600 uppercase tracking-wider bg-accentRed-600/10 px-3 py-1 rounded-full border border-accentRed-600/30">Grand Finale</span>
-                        <span class="text-xs font-semibold text-gold-400">📅 18th July 2025</span>
-                    </div>
-                    <h3 class="font-serif-heading font-bold text-white text-2xl group-hover:text-gold-400 transition-colors">Samarthāyam 1.0 Championship Winners</h3>
-                    <p class="text-sm text-slate-300 mt-2 leading-relaxed">Celebrating the winning schools and overall trophy recipients along with teachers and organizers.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- FULLSCREEN LIGHTBOX SLIDESHOW MODAL -->
-    <div id="lightboxModal" class="fixed inset-0 z-50 bg-navy-950/95 backdrop-blur-xl hidden flex-col justify-between p-4 sm:p-8">
-        
-        <!-- Modal Top Bar -->
-        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-            <div>
-                <span id="lbCounter" class="text-xs font-extrabold text-gold-400 tracking-widest uppercase">Image 1 of 5</span>
-                <h4 id="lbTitle" class="text-lg font-serif-heading font-bold text-white">Title Placeholder</h4>
-            </div>
-            <button onclick="closeLightbox()" class="w-10 h-10 rounded-full bg-slate-800 text-slate-300 hover:bg-accentRed-600 hover:text-white flex items-center justify-center transition font-bold text-lg">
-                ✕
-            </button>
-        </div>
-
-        <!-- Main Slide Viewport -->
-        <div class="relative flex-1 flex items-center justify-center my-4 overflow-hidden">
-            <button onclick="navigateLightbox(-1)" class="absolute left-2 sm:left-6 z-10 w-12 h-12 rounded-full bg-navy-900/80 hover:bg-gold-500 hover:text-navy-950 text-white border border-gold-500/30 flex items-center justify-center transition text-xl shadow-2xl">
-                ❮
-            </button>
-
-            <img id="lbImage" src="" alt="Slideshow Image" class="max-h-[70vh] max-w-full object-contain rounded-xl shadow-2xl border border-slate-800 transition-all duration-300">
-
-            <button onclick="navigateLightbox(1)" class="absolute right-2 sm:right-6 z-10 w-12 h-12 rounded-full bg-navy-900/80 hover:bg-gold-500 hover:text-navy-950 text-white border border-gold-500/30 flex items-center justify-center transition text-xl shadow-2xl">
-                ❯
-            </button>
-        </div>
-
-        <!-- Modal Footer Caption -->
-        <div class="text-center bg-navy-900/80 p-4 rounded-xl border border-slate-800 max-w-2xl mx-auto w-full">
-            <p id="lbCaption" class="text-xs sm:text-sm text-slate-300">Caption details...</p>
-        </div>
+  <!-- Announcement Bar -->
+  <div class="bg-navy-950 text-slate-300 text-xs py-1.5 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+      <div class="flex flex-wrap items-center gap-4 text-[11px] sm:text-xs"></div>
+      <div><a href="mailto:infowr@thesamarthschool.edu.in" class="hover:text-gold-400 transition">infowr@thesamarthschool.edu.in</a></div>
     </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="bg-navy-950 border-t-2 border-gold-500/30 py-12 text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left">
-                <h3 class="font-serif-heading text-lg font-bold text-white">The Samarth School</h3>
-                <p class="text-xs text-slate-400 mt-1">Main Wazirabad Road, Adjacent to West Jyoti Nagar, Delhi – 110093</p>
-            </div>
-            
-            <div class="flex items-center gap-6 font-semibold text-xs sm:text-sm">
-                <a href="#" class="hover:text-gold-400 transition">Home</a>
-                <a href="#" class="hover:text-gold-400 transition">Events & Guidelines</a>
-                <a href="#" class="text-gold-400">Gallery</a>
-                <a href="#" class="hover:text-gold-400 transition">Result</a>
-            </div>
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <div class="flex items-center space-x-3.5">
+        <img src="https://thesamarthschool.edu.in/wp-content/uploads/2023/08/logo1-1-1.png" alt="The Samarth School Logo" class="h-12 sm:h-14 w-auto object-contain">
+        <div>
+          <span class="block text-base sm:text-lg font-extrabold text-navy-900 tracking-tight leading-none">THE SAMARTH SCHOOL</span>
+          <span class="text-[10px] sm:text-[11px] text-accentRed-600 font-bold tracking-wide uppercase mt-1 block">Wazirabad Road • "Learn to Lead"</span>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-900 text-xs text-center text-slate-500">
-            © 2025 The Samarth School. All photos belong to their respective event organizers.
+      </div>
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-700 items-center">
+        <a href="index.html" class="hover:text-gold-600 transition-colors py-1">Home</a>
+        <a href="rules.html" class="hover:text-gold-600 transition-colors py-1">Events & Guidelines</a>
+        <a href="gallery.html" class="text-gold-600 font-bold border-b-2 border-gold-500 py-1">Event Gallery</a>
+        <a href="result.html" class="hover:text-gold-600 transition-colors py-1">Results</a>
+        <a href="https://sites.google.com/thesamarthschool.edu.in/samarthayam/home?authuser=5" class="px-4 py-2 bg-navy-900 text-gold-400 rounded-lg hover:bg-navy-800 transition shadow-sm font-bold">Samarthāyam 1.0</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Carousel -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
+    <div class="relative w-full h-[320px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 bg-navy-950 group" id="heroCarousel">
+      <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-700 ease-in-out">
+        <img src="assets/images/result/DSC_0365.JPG" class="w-full h-full object-cover object-center" alt="Grand Finale Winners">
+        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+        <div class="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-accentRed-600 text-white uppercase tracking-wider">Championship Highlight</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">Samarthāyam 2.0 Trophy Presentation</h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-xl">Celebrating overall trophy recipients and winning delegations with pride and joy.</p>
         </div>
-    </footer>
+      </div>
+      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none">
+        <img src="assets/images/Guest/DSC_0037.JPG" class="w-full h-full object-cover object-center" alt="Award Ceremony">
+        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+        <div class="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-500 text-navy-950 uppercase tracking-wider">Felicitation</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">Dignitaries & Guest Honors</h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-xl">Acknowledging our panel of esteemed judges, chief guests, and keynote speakers.</p>
+        </div>
+      </div>
+      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none">
+        <img src="assets/images/performance/DSC_0043.JPG" class="w-full h-full object-cover object-center" alt="Jhankaar Dance Performance">
+        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
+        <div class="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-500 text-navy-950 uppercase tracking-wider">Cultural Showcase</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">Jhankaar — Rhythm & Movement</h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-1 max-w-xl">Enthralling classical and contemporary dance performances by talented students.</p>
+        </div>
+      </div>
+      <button onclick="changeHeroSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-navy-950/70 hover:bg-gold-500 hover:text-navy-950 text-white border border-gold-500/40 flex items-center justify-center transition-all opacity-80 group-hover:opacity-100 shadow-md z-10">❮</button>
+      <button onclick="changeHeroSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-navy-950/70 hover:bg-gold-500 hover:text-navy-950 text-white border border-gold-500/40 flex items-center justify-center transition-all opacity-80 group-hover:opacity-100 shadow-md z-10">❯</button>
+      <div class="absolute top-6 right-6 flex gap-2 z-10">
+        <button onclick="setHeroSlide(0)" class="hero-dot w-3 h-3 rounded-full bg-gold-500 transition-all"></button>
+        <button onclick="setHeroSlide(1)" class="hero-dot w-3 h-3 rounded-full bg-white/40 transition-all"></button>
+        <button onclick="setHeroSlide(2)" class="hero-dot w-3 h-3 rounded-full bg-white/40 transition-all"></button>
+      </div>
+    </div>
+  </section>
 
-    <!-- SLIDESHOW JAVASCRIPT LOGIC -->
-    <script>
-        // --- 1. HERO CAROUSEL SCRIPT ---
-        let currentHeroIndex = 0;
-        const heroSlides = document.querySelectorAll('.hero-slide');
-        const heroDots = document.querySelectorAll('.hero-dot');
+  <!-- Core Philosophy Ribbon -->
+  <section class="py-6 bg-slate-100/80 border-y border-slate-200/80 my-8">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <span class="text-[11px] font-bold text-accentRed-600 tracking-widest uppercase">Our Core Philosophy</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">Foundational Values & Vision</h2>
+      <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-xs sm:text-sm font-bold text-navy-900 uppercase tracking-wider mt-3">
+        <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-gold-500"></span> Dignity</span><span class="hidden sm:inline text-slate-300">•</span>
+        <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-accentRed-600"></span> Peace</span><span class="hidden sm:inline text-slate-300">•</span>
+        <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-gold-500"></span> Unity</span><span class="hidden sm:inline text-slate-300">•</span>
+        <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-accentRed-600"></span> Freedom</span>
+      </div>
+    </div>
+  </section>
 
-        function setHeroSlide(index) {
-            heroSlides[currentHeroIndex].classList.add('opacity-0', 'pointer-events-none');
-            heroSlides[currentHeroIndex].classList.remove('opacity-100');
-            heroDots[currentHeroIndex].classList.replace('bg-gold-500', 'bg-white/40');
+  <!-- Competitions & Highlights Grid -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <div class="text-center mb-10">
+      <span class="text-[11px] font-bold text-accentRed-600 tracking-widest uppercase">Competitions & Highlights Showcase</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">Glimpses of All Event Categories</h2>
+      <p class="text-xs text-slate-500 mt-1">Full uncropped images fit frame perfectly • Auto-slides every 5 seconds • Click photo to view fullscreen</p>
+      <div class="w-12 h-1 bg-gold-500 mx-auto mt-2 rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="galleryGrid"></div>
+  </section>
 
-            currentHeroIndex = index;
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-navy-950/95 backdrop-blur-xl hidden flex-col justify-between p-4 sm:p-8">
+    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+      <div>
+        <span id="lbCounter" class="text-xs font-extrabold text-gold-400 tracking-widest uppercase">IMAGE 1 OF 24</span>
+        <h4 id="lbTitle" class="text-lg font-extrabold text-white">Title Placeholder</h4>
+      </div>
+      <button onclick="closeLightbox()" class="w-10 h-10 rounded-full bg-slate-800 text-slate-300 hover:bg-accentRed-600 hover:text-white flex items-center justify-center transition font-bold text-lg">✕</button>
+    </div>
+    <div class="relative flex-1 flex items-center justify-center my-4 overflow-hidden">
+      <button onclick="navigateLightbox(-1)" class="absolute left-2 sm:left-6 z-10 w-12 h-12 rounded-full bg-navy-900/80 hover:bg-gold-500 hover:text-navy-950 text-white border border-gold-500/30 flex items-center justify-center transition text-xl shadow-2xl">❮</button>
+      <img id="lbImage" src="" alt="Slideshow Image" class="max-h-[75vh] max-w-full w-auto h-auto object-contain rounded-xl shadow-2xl border border-slate-800 transition-all duration-300">
+      <button onclick="navigateLightbox(1)" class="absolute right-2 sm:right-6 z-10 w-12 h-12 rounded-full bg-navy-900/80 hover:bg-gold-500 hover:text-navy-950 text-white border border-gold-500/30 flex items-center justify-center transition text-xl shadow-2xl">❯</button>
+    </div>
+    <div class="text-center bg-navy-900/80 p-4 rounded-xl border border-slate-800 max-w-2xl mx-auto w-full">
+      <p id="lbCaption" class="text-xs sm:text-sm text-slate-300">Caption details...</p>
+    </div>
+  </div>
 
-            heroSlides[currentHeroIndex].classList.remove('opacity-0', 'pointer-events-none');
-            heroSlides[currentHeroIndex].classList.add('opacity-100');
-            heroDots[currentHeroIndex].classList.replace('bg-white/40', 'bg-gold-500');
-        }
+  <!-- Footer -->
+  <footer id="contact" class="bg-navy-950 text-slate-400 py-8 border-t-2 border-gold-500/30">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6 mb-5 pb-5 border-b border-slate-800">
+      <div>
+        <h3 class="text-base font-bold text-white mb-2">The Samarth School</h3>
+        <p class="text-xs text-slate-400 leading-relaxed mb-2.5">Main Wazirabad Road, Adjacent to West Jyoti Nagar, Delhi – 110093</p>
+        <div class="text-xs space-y-0.5">
+          <p><strong class="text-slate-300">Affiliation No:</strong> 2730096</p>
+          <p><strong class="text-slate-300">School Code:</strong> 85056</p>
+          <p><strong class="text-slate-300">School ID:</strong> 1106196</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-base font-bold text-white mb-2">Contact Us</h3>
+        <ul class="text-xs space-y-1.5">
+          <li><strong class="text-slate-300">Enquiry Phone:</strong> +91 8287555045</li>
+          <li><strong class="text-slate-300">Admission Phone:</strong> 8826546178</li>
+          <li><strong class="text-slate-300">Landline:</strong> 011-35005440</li>
+          <li><strong class="text-slate-300">Email:</strong> <a href="mailto:infowr@thesamarthschool.edu.in" class="text-gold-400 hover:underline">infowr@thesamarthschool.edu.in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-base font-bold text-white mb-2">Quick Links & Socials</h3>
+        <div class="flex flex-col space-y-1.5 text-xs font-semibold mb-2.5">
+          <a href="https://thesamarthschool.edu.in" target="_blank" class="hover:text-white transition">› Official Website</a>
+        </div>
+        <div class="flex items-center space-x-2.5 text-xs font-bold text-white">
+          <a href="https://www.facebook.com/thesamarthschool" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">Facebook</a>
+          <a href="https://www.instagram.com/thesamarth_school/" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">Instagram</a>
+          <a href="https://youtube.com/@thesamarthschoolloniwr" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500">© 2026 The Samarth School - Wazirabad Road. All rights reserved.</div>
+  </footer>
 
-        function changeHeroSlide(direction) {
-            let newIndex = (currentHeroIndex + direction + heroSlides.length) % heroSlides.length;
-            setHeroSlide(newIndex);
-        }
+  <!-- JavaScript Logic -->
+  <script>
+    let currentHeroIndex = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide'), heroDots = document.querySelectorAll('.hero-dot');
+    const setHeroSlide = i => { heroSlides[currentHeroIndex].classList.add('opacity-0','pointer-events-none'); heroSlides[currentHeroIndex].classList.remove('opacity-100'); heroDots[currentHeroIndex].classList.replace('bg-gold-500','bg-white/40'); currentHeroIndex = i; heroSlides[currentHeroIndex].classList.remove('opacity-0','pointer-events-none'); heroSlides[currentHeroIndex].classList.add('opacity-100'); heroDots[currentHeroIndex].classList.replace('bg-white/40','bg-gold-500'); };
+    const changeHeroSlide = dir => setHeroSlide((currentHeroIndex + dir + heroSlides.length) % heroSlides.length);
+    setInterval(() => changeHeroSlide(1), 5000);
 
-        // Auto play hero slideshow every 5 seconds
-        setInterval(() => {
-            changeHeroSlide(1);
-        }, 5000);
+    const galleryCategories = [
+      { title: "Welcome Guests", tag: "Opening Ceremonies", tagColor: "bg-amber-50 text-gold-600 border-amber-200", description: "Warm reception and felicitations extended to dignitaries, chief guests, and school leadership.", images: [
+        { src: "assets/images/welcomeGuest/10.png", title: "Welcome Guests — Floral Honor", caption: "Presenting bouquets to esteemed guests at Samarthāyam 2.0." },
+        { src: "assets/images/welcomeGuest/11.png", title: "Welcome Guests — Lamp Lighting", caption: "Auspicious inauguration lamp lighting ceremony." },
+        { src: "assets/images/welcomeGuest/12.png", title: "Welcome Guests — Procession", caption: "Dignitaries being ushered to the main auditorium." },
+        { src: "assets/images/welcomeGuest/13.png", title: "Welcome Guests — Token of Esteem", caption: "Presenting commemorative mementos to distinguished invitees." },
+        { src: "assets/images/welcomeGuest/14.png", title: "Welcome Guests — Opening Address", caption: "School management welcoming participating institutions." },
+        { src: "assets/images/welcomeGuest/15.png", title: "Welcome Guests — Special Reception", caption: "Guests interacting with festival coordinators." },
+        { src: "assets/images/welcomeGuest/16.png", title: "Welcome Guests — Dignitary Gathering", caption: "Key organizers and chief guest team interaction." },
+        { src: "assets/images/welcomeGuest/17.png", title: "Welcome Guests — Stage Felicitation", caption: "Honoring guests on the main stage." },
+        { src: "assets/images/welcomeGuest/18.png", title: "Welcome Guests — Keynote Ceremony", caption: "Opening words delivered during the inaugural session." },
+        { src: "assets/images/welcomeGuest/19.png", title: "Welcome Guests — Audience Greetings", caption: "Dignitaries addressing students and delegates." },
+        { src: "assets/images/welcomeGuest/20.png", title: "Welcome Guests — Felicitation Plaque", caption: "Presenting special honor plaques to our chief guests." },
+        { src: "assets/images/welcomeGuest/21.png", title: "Welcome Guests — Welcome Song", caption: "Cultural welcome performance dedicated to the guests." },
+        { src: "assets/images/welcomeGuest/22.png", title: "Welcome Guests — Interaction Session", caption: "Chief guest engaging with young student participants." },
+        { src: "assets/images/welcomeGuest/23.png", title: "Welcome Guests — Group Photo", caption: "Inaugural group photograph with management and guests." }
+      ]},
+      { title: "Dignitaries & Guest Honors", tag: "Special Invitees", tagColor: "bg-amber-50 text-gold-600 border-amber-200", description: "Eminent personalities and guest speakers sharing inspirational insights.", images: [
+        { src: "assets/images/Guest/DSC_0037.JPG", title: "Guest Honors — Keynote Address", caption: "Eminent guest sharing inspiring words with participating schools." },
+        { src: "assets/images/Guest/DSC_0065.JPG", title: "Guest Honors — Memento Presentation", caption: "Honoring our special invitees with tokens of gratitude." },
+        { src: "assets/images/Guest/DSC_0224.JPG", title: "Guest Honors — Auditorium Address", caption: "Addressing the gathering during inter-school event sessions." },
+        { src: "assets/images/Guest/DSC_0230.JPG", title: "Guest Honors — Inspiring Words", caption: "Motivating students to excel in artistic and scientific endeavors." },
+        { src: "assets/images/Guest/DSC_0340.JPG", title: "Guest Honors — Special Guest Interaction", caption: "Guest speaker observing competition presentations." },
+        { src: "assets/images/Guest/DSC_0410.JPG", title: "Guest Honors — Closing Remarks", caption: "Expressing heartfelt appreciation for school participation." },
+        { src: "assets/images/Guest/VS200037.JPG", title: "Guest Honors — Souvenir Release", caption: "Unveiling event materials alongside dignitaries." }
+      ]},
+      { title: "Judges & Jury Panel", tag: "Evaluation Jury", tagColor: "bg-slate-100 text-navy-900 border-slate-200", description: "Distinguished external jury members evaluating student performances.", images: [
+        { src: "assets/images/Judges/DSC_0070.JPG", title: "Jury Panel — Event Evaluation", caption: "Jury members reviewing rubric scores during live performances." },
+        { src: "assets/images/Judges/DSC_0075.JPG", title: "Jury Panel — Scoring Desk", caption: "Judges meticulously calculating points for competitive events." },
+        { src: "assets/images/Judges/DSC_0211.JPG", title: "Jury Panel — Stage Feedback", caption: "Distinguished judges offering constructive feedback to participants." }
+      ]},
+      { title: "Dramatic Monologue", tag: "Theatre Arts", tagColor: "bg-red-50 text-accentRed-600 border-red-200/60", description: "Solo theatrical act showcasing vocal poise, emotion, and dramatic stage presence.", images: [
+        { src: "assets/images/Dramatic Monologue/DSC_0068.JPG", title: "Dramatic Monologue — Solo Act", caption: "Participant expressing intense character emotions on stage." },
+        { src: "assets/images/Dramatic Monologue/DSC_0078.JPG", title: "Dramatic Monologue — Vocal Poise", caption: "Showcasing voice modulation and theatrical expression." },
+        { src: "assets/images/Dramatic Monologue/DSC_0081.JPG", title: "Dramatic Monologue — Climax Scene", caption: "Captivating the audience with dramatic character roleplay." }
+      ]},
+      { title: "Message to Future Generation", tag: "Oratory & Speech", tagColor: "bg-slate-100 text-navy-900 border-slate-200", description: "Speeches conveying visionary ideas and moral principles for tomorrow's leaders.", images: [
+        { src: "assets/images/Message to the Future Generation/DSC_0066.JPG", title: "Message to Future Gen — Keynote Speech", caption: "Student speaker delivering an inspiring vision for tomorrow's world." },
+        { src: "assets/images/Message to the Future Generation/DSC_0068.JPG", title: "Message to Future Gen — Rhetoric Expression", caption: "Articulating key values on environment, peace, and ethical leadership." },
+        { src: "assets/images/Message to the Future Generation/DSC_0074.JPG", title: "Message to Future Gen — Podium Address", caption: "Engaging the audience with persuasive and thoughtful commentary." },
+        { src: "assets/images/Message to the Future Generation/DSC_0160.JPG", title: "Message to Future Gen — Final Thoughts", caption: "Concluding remarks emphasizing unity and responsibility." }
+      ]},
+      { title: "Newsroom Simulation", tag: "Journalism & Media", tagColor: "bg-amber-50 text-gold-600 border-amber-200", description: "Dynamic broadcasting roleplay simulating live news coverage and field reporting.", images: [
+        { src: "assets/images/Newsroom Simulation/DSC_0109.JPG", title: "Newsroom Simulation — Anchor Desk", caption: "Student news anchors broadcasting live breaking news updates." },
+        { src: "assets/images/Newsroom Simulation/DSC_0147.JPG", title: "Newsroom Simulation — Live Reporting", caption: "Field reporting roleplay covering simulated global events." },
+        { src: "assets/images/Newsroom Simulation/DSC_0152.JPG", title: "Newsroom Simulation — Press Desk", caption: "Editorial discussion and press desk coordination." },
+        { src: "assets/images/Newsroom Simulation/DSC_0153.JPG", title: "Newsroom Simulation — Bulletin Broadcast", caption: "Delivering real-time news analysis under strict time limits." },
+        { src: "assets/images/Newsroom Simulation/DSC_0156.JPG", title: "Newsroom Simulation — Debate Session", caption: "Panel debate on ethics and broadcast journalism." },
+        { src: "assets/images/Newsroom Simulation/DSC_0160.JPG", title: "Newsroom Simulation — Broadcast Wrap-Up", caption: "Final editorial summary presented to the evaluation jury." }
+      ]},
+      { title: "Science Storytellers 2040", tag: "Sci-Fi & Innovation", tagColor: "bg-red-50 text-accentRed-600 border-red-200/60", description: "Futuristic scientific narratives blending technological vision with creative writing.", images: [
+        { src: "assets/images/Science Storytellers 2040/DSC_0068.JPG", title: "Science Storytellers 2040 — Visual Pitch", caption: "Weaving futuristic science concepts with a compelling narrative deck." },
+        { src: "assets/images/Science Storytellers 2040/DSC_0096.JPG", title: "Science Storytellers 2040 — AI Concept", caption: "Explaining year 2040 technological and space advancements." },
+        { src: "assets/images/Science Storytellers 2040/DSC_0102.JPG", title: "Science Storytellers 2040 — Sci-Fi Lore", caption: "Presenter backing speculative fiction with realistic scientific theory." },
+        { src: "assets/images/Science Storytellers 2040/DSC_0109.JPG", title: "Science Storytellers 2040 — Prototype Story", caption: "Interactive storytelling incorporating green technology and robotics." },
+        { src: "assets/images/Science Storytellers 2040/DSC_0178.JPG", title: "Science Storytellers 2040 — Q&A Defense", caption: "Answering judges' technical questions regarding futuristic claims." },
+        { src: "assets/images/Science Storytellers 2040/DSC_0180.JPG", title: "Science Storytellers 2040 — Eco Tech Vision", caption: "Presenting bio-engineering ideas for sustainable planetary life." },
+        { src: "assets/images/Science Storytellers 2040/DSC_0182.JPG", title: "Science Storytellers 2040 — Creative Presentation", caption: "Engaging slide display depicting futuristic cityscapes." },
+        { src: "assets/images/Science Storytellers 2040/DSC_0185.JPG", title: "Science Storytellers 2040 — Team Collaboration", caption: "Co-presenters sharing narrative roles during live pitch." },
+        { src: "assets/images/Science Storytellers 2040/DSC_0190.JPG", title: "Science Storytellers 2040 — Conclusion", caption: "Final vision statement on human-AI synergy in 2040." }
+      ]},
+      { title: "Scirang", tag: "Scientific Rangoli", tagColor: "bg-amber-50 text-gold-600 border-amber-200", description: "Floor art portraying biological processes, physical phenomena, and ecosystem dynamics.", images: [
+        { src: "assets/images/Scirang/DSC_0109.JPG", title: "Scirang — Floor Artwork", caption: "Intricate floor art depicting biological pathways and planetary physics." },
+        { src: "assets/images/Scirang/DSC_0114.JPG", title: "Scirang — Color Pigment Fusion", caption: "Blending traditional Indian Rangoli techniques with scientific diagrams." },
+        { src: "assets/images/Scirang/DSC_0118.JPG", title: "Scirang — Jury Inspection", caption: "Judges inspecting structural accuracy of scientific Rangoli concepts." },
+        { src: "assets/images/Scirang/DSC_0120.JPG", title: "Scirang — Final Artwork", caption: "Vibrant ecosystem representation drawn using organic colored powders." },
+        { src: "assets/images/Scirang/DSC_0188.JPG", title: "Scirang — Teamwork in Action", caption: "Students applying fine artistic details to complex atomic diagrams." }
+      ]},
+      { title: "Science Beats with Swag", tag: "Musical Performance", tagColor: "bg-slate-100 text-navy-900 border-slate-200", description: "Rhythmic fusion blending scientific facts, rap, and catchy beats into performance art.", images: [
+        { src: "assets/images/Science Beats with Swag/DSC_0109.JPG", title: "Science Beats — Rap Flow", caption: "Students performing energetic scientific rap and musical numbers." },
+        { src: "assets/images/Science Beats with Swag/DSC_0132.JPG", title: "Science Beats — Rhythm & Beats", caption: "Combining chemistry formulas with high-energy beatboxing and rhythm." },
+        { src: "assets/images/Science Beats with Swag/DSC_0133.JPG", title: "Science Beats — Stage Energy", caption: "Enthusiastic crowd cheering for scientific musical performance." },
+        { src: "assets/images/Science Beats with Swag/DSC_0134.JPG", title: "Science Beats — Grand Finale Beat", caption: "Upbeat synchronized performance ending on a high note." }
+      ]},
+      { title: "Jhankaar & Cultural Showcase", tag: "Dance & Rhythm", tagColor: "bg-amber-50 text-gold-600 border-amber-200", description: "Enthralling classical and contemporary dance performances celebrating expressions and cultural grace.", images: [
+        { src: "assets/images/performance/DSC_0043.JPG", title: "Jhankaar — Classical Dance", caption: "Students performing intricate classical Indian dance mudras." },
+        { src: "assets/images/performance/DSC_0303.JPG", title: "Jhankaar — Group Synchrony", caption: "Graceful group choreography with traditional attires and expression." },
+        { src: "assets/images/performance/DSC_0314.JPG", title: "Jhankaar — Contemporary Beats", caption: "Dynamic fusion dance blending traditional and modern beats." },
+        { src: "assets/images/performance/DSC_0324.JPG", title: "Jhankaar — Stage Costume", caption: "Colorful costumes enhancing thematic performance storytelling." },
+        { src: "assets/images/performance/DSC_0358.JPG", title: "Jhankaar — Rhythm Sequence", caption: "High-energy footwork capturing audience applause." },
+        { src: "assets/images/performance/DSC_0360.JPG", title: "Jhankaar — Grand Finale Pose", caption: "Breathtaking climax pose ending the cultural showcase." }
+      ]},
+      { title: "Results & Felicitation Ceremony", tag: "Grand Finale", tagColor: "bg-red-50 text-accentRed-600 border-red-200/60", description: "Trophy presentations and honors awarded to overall winning delegations.", images: [
+        { src: "assets/images/result/DSC_0365.JPG", title: "Results — Overall Trophy", caption: "Winner lifting the Samarthāyam 2.0 Overall Champions Trophy." },
+        { src: "assets/images/result/DSC_0368.JPG", title: "Results — Gold Medalist", caption: "First-place winner receiving certificate and medal from chief guest." },
+        { src: "assets/images/result/DSC_0369.JPG", title: "Results — Runner-Up Award", caption: "Honoring second-place school team for outstanding overall performance." },
+        { src: "assets/images/result/DSC_0371.JPG", title: "Results — Team Felicitation", caption: "Winning student delegation celebrating victory on stage." },
+        { src: "assets/images/result/DSC_0372.JPG", title: "Results — Certificate Honors", caption: "Distributing certificates of excellence to top position holders." },
+        { src: "assets/images/result/DSC_0373.JPG", title: "Results — Special Mention", caption: "Recognizing outstanding individual performers across categories." },
+        { src: "assets/images/result/DSC_0375.JPG", title: "Results — Trophy Unveiling", caption: "Champions trophy presented with fanfare and cheers." },
+        { src: "assets/images/result/DSC_0380.JPG", title: "Results — Principal's Speech", caption: "Principal congratulating all participating schools and mentors." },
+        { src: "assets/images/result/DSC_0385.JPG", title: "Results — Delegate Photo", caption: "Participating school teams holding awards alongside organizers." },
+        { src: "assets/images/result/DSC_0390.JPG", title: "Results — Closing Celebration", caption: "Joyous celebration marking the successful completion of Samarthāyam 2.0." }
+      ]}
+    ];
 
+    const cardSlideIndices = {};
+    const renderGalleryGrid = () => {
+      const container = document.getElementById('galleryGrid');
+      if(!container) return;
+      container.innerHTML = galleryCategories.map((cat, catIdx) => {
+        const cardId = catIdx + 1; cardSlideIndices[cardId] = 0;
+        const imgs = cat.images.map((img, i) => `<img src="${img.src}" onclick="openLightbox(${catIdx}, ${i})" alt="${img.title}" class="w-full h-full object-contain bg-navy-950 shrink-0 cursor-pointer p-1">`).join('');
+        const dots = cat.images.map((_, i) => `<span class="h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-gold-500 w-2.5' : 'bg-white/50 w-2'}"></span>`).join('');
+        return `<div class="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 hover:border-gold-500/80 transition-all duration-300 shadow-md hover:shadow-xl flex flex-col justify-between"><div><div class="aspect-[16/9] overflow-hidden relative bg-navy-950 group/slider"><div id="slider-event-${cardId}" class="w-full h-full flex transition-transform duration-500 ease-out">${imgs}</div><div class="absolute top-3 left-3 z-10"><span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-gold-500 text-navy-950 shadow">Category ${cardId}</span></div><button onclick="moveCardSlide(${cardId}, -1)" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-navy-950/80 hover:bg-gold-500 hover:text-navy-950 text-white flex items-center justify-center text-sm transition shadow opacity-90 sm:opacity-0 group-hover/slider:opacity-100">❮</button><button onclick="moveCardSlide(${cardId}, 1)" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-navy-950/80 hover:bg-gold-500 hover:text-navy-950 text-white flex items-center justify-center text-sm transition shadow opacity-90 sm:opacity-0 group-hover/slider:opacity-100">❯</button><div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5 max-w-[80%] overflow-hidden px-2 py-1 bg-navy-950/60 backdrop-blur-sm rounded-full" id="dots-event-${cardId}">${dots}</div></div><div class="p-6"><div class="flex items-center justify-between mb-2"><span class="text-[11px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full border ${cat.tagColor}">${cat.tag}</span><span class="text-xs text-slate-400 font-medium">${cat.images.length} Photos</span></div><h3 class="font-extrabold text-navy-900 text-xl group-hover:text-gold-600 transition-colors">${cat.title}</h3><p class="text-xs text-slate-500 mt-2 leading-relaxed">${cat.description}</p></div></div><div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-slate-100 mt-2"><button onclick="openLightbox(${catIdx}, 0)" class="text-xs font-bold text-navy-900 hover:text-gold-600 flex items-center gap-1">🔍 View All ${cat.images.length} Photos</button><a href="result.html" class="text-xs font-bold text-accentRed-600 hover:underline">View Results →</a></div></div>`;
+      }).join('');
+    };
 
-        // --- 2. LIGHTBOX SLIDESHOW SCRIPT ---
-        const galleryData = [
-            {
-                src: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop",
-                title: "Live Painting & Craft Workshop",
-                caption: "Students showcasing hands-on artistic techniques during the competition session."
-            },
-            {
-                src: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop",
-                title: "Artwork Presentation",
-                caption: "Participant presenting an original landscape painting to the evaluation panel."
-            },
-            {
-                src: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop",
-                title: "Guest Felicitation & Trophy Presentation",
-                caption: "School dignitaries and guests honoring top achievers with mementos."
-            },
-            {
-                src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-                title: "On-Spot Illustration Contest",
-                caption: "Young minds deep in focus creating detailed sketches under allotted time limits."
-            },
-            {
-                src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1200&auto=format&fit=crop",
-                title: "Samarthāyam 1.0 Championship Winners",
-                caption: "Celebrating the winning schools and overall trophy recipients along with teachers and organizers."
-            }
-        ];
+    const moveCardSlide = (cardId, dir) => {
+      const slider = document.getElementById(`slider-event-${cardId}`);
+      if (!slider || !slider.children.length) return;
+      const total = slider.children.length;
+      cardSlideIndices[cardId] = (cardSlideIndices[cardId] + dir + total) % total;
+      slider.style.transform = `translateX(-${cardSlideIndices[cardId] * 100}%)`;
+      const dots = document.getElementById(`dots-event-${cardId}`)?.children;
+      if (dots) Array.from(dots).forEach((dot, i) => dot.className = `h-2 rounded-full transition-all duration-300 ${i === cardSlideIndices[cardId] ? 'bg-gold-500 w-2.5' : 'bg-white/50 w-2'}`);
+    };
 
-        let currentLbIndex = 0;
+    setInterval(() => galleryCategories.forEach((_, i) => moveCardSlide(i + 1, 1)), 5000);
 
-        function openLightbox(index) {
-            currentLbIndex = index;
-            updateLightboxContent();
-            document.getElementById('lightboxModal').classList.remove('hidden');
-            document.getElementById('lightboxModal').classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
+    let currentCatIdx = 0, currentPhotoIdx = 0;
+    const openLightbox = (catIdx, photoIdx) => { currentCatIdx = catIdx; currentPhotoIdx = photoIdx; updateLightboxContent(); document.getElementById('lightboxModal').classList.replace('hidden', 'flex'); document.body.style.overflow = 'hidden'; };
+    const closeLightbox = () => { document.getElementById('lightboxModal').classList.replace('flex', 'hidden'); document.body.style.overflow = 'auto'; };
+    const navigateLightbox = dir => { const photos = galleryCategories[currentCatIdx].images; currentPhotoIdx = (currentPhotoIdx + dir + photos.length) % photos.length; updateLightboxContent(); };
+    const updateLightboxContent = () => {
+      const photo = galleryCategories[currentCatIdx].images[currentPhotoIdx];
+      document.getElementById('lbImage').src = photo.src;
+      document.getElementById('lbTitle').textContent = photo.title;
+      document.getElementById('lbCaption').textContent = photo.caption;
+      document.getElementById('lbCounter').textContent = `${galleryCategories[currentCatIdx].title.toUpperCase()} • PHOTO ${currentPhotoIdx + 1} OF ${galleryCategories[currentCatIdx].images.length}`;
+    };
 
-        function closeLightbox() {
-            document.getElementById('lightboxModal').classList.add('hidden');
-            document.getElementById('lightboxModal').classList.remove('flex');
-            document.body.style.overflow = 'auto';
-        }
-
-        function navigateLightbox(direction) {
-            currentLbIndex = (currentLbIndex + direction + galleryData.length) % galleryData.length;
-            updateLightboxContent();
-        }
-
-        function updateLightboxContent() {
-            const item = galleryData[currentLbIndex];
-            document.getElementById('lbImage').src = item.src;
-            document.getElementById('lbTitle').textContent = item.title;
-            document.getElementById('lbCaption').textContent = item.caption;
-            document.getElementById('lbCounter').textContent = `IMAGE ${currentLbIndex + 1} OF ${galleryData.length}`;
-        }
-
-        // Keyboard Navigation Support (Esc, Left Arrow, Right Arrow)
-        document.addEventListener('keydown', (e) => {
-            const modal = document.getElementById('lightboxModal');
-            if (!modal.classList.contains('hidden')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') navigateLightbox(-1);
-                if (e.key === 'ArrowRight') navigateLightbox(1);
-            }
-        });
-    </script>
+    document.addEventListener('keydown', e => {
+      const m = document.getElementById('lightboxModal');
+      if (m && !m.classList.contains('hidden')) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') navigateLightbox(-1); if (e.key === 'ArrowRight') navigateLightbox(1); }
+    });
+    document.addEventListener('DOMContentLoaded', renderGalleryGrid);
+  </script>
 </body>
 </html>
