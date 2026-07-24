@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Samarthāyam 2.0 | The Samarth School - Wazirabad Road</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            navy: {
+                                800: "#102A43",
+                                900: "#0B192C",
+                                950: "#030A16"
+                            },
+                            gold: {
+                                400: "#FBBF24",
+                                500: "#F59E0B",
+                                600: "#D97706"
+                            },
+                            accentRed: {
+                                600: "#DC2626",
+                                700: "#B91C1C"
+                            }
+                        }
+                    }
+                }
+            };
+        </script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet" />
+        <style>
+            body {
+                font-family: "Plus Jakarta Sans", sans-serif;
+            }
+        </style>
+    </head>
+    <body class="bg-slate-50 text-slate-800 antialiased selection:bg-gold-500 selection:text-navy-950">
+        <!-- Top Announcement Bar -->
+        <div class="bg-navy-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+                <div class="flex flex-wrap items-center gap-4 text-[11px] sm:text-xs">
+                    <span>The Samarth School • Wazirabad Road Branch</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="mailto:infowr@thesamarthschool.edu.in" class="hover:text-gold-400 transition"
+                        >infowr@thesamarthschool.edu.in</a
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Header -->
+        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <div class="flex items-center space-x-3.5">
+                    <img
+                        src="https://thesamarthschool.edu.in/wp-content/uploads/2023/08/logo1-1-1.png"
+                        alt="The Samarth School Logo"
+                        class="h-14 w-auto object-contain" />
+                    <div>
+                        <span class="block text-lg font-extrabold text-navy-900 tracking-tight leading-none"
+                            >THE SAMARTH SCHOOL</span
+                        >
+                        <span class="text-[11px] text-accentRed-600 font-bold tracking-wide uppercase mt-1 block"
+                            >Wazirabad Road • "Learn to Lead"</span
+                        >
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-700 items-center">
+                    <a href="#" class="hover:text-gold-600 transition-colors py-1">Home</a>
+                    <a href="#" class="hover:text-gold-600 transition-colors py-1">Events and Guidelines</a>
+                    <a href="../Samarth/gallery.html" class="hover:text-gold-600 transition-colors py-1">Event Gallery</a>
+                    <a href="#" class="hover:text-gold-600 transition-colors py-1">Result</a>
+                    <a
+                        href="https://sites.google.com/thesamarthschool.edu.in/samarthayam/home?authuser=5"
+                        class="px-4 py-2 bg-navy-900 text-gold-400 rounded-lg hover:bg-navy-800 transition shadow-sm font-bold"
+                        >Samarthāyam 2.0</a
+                    >
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative bg-navy-950 text-white py-20 lg:py-28 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-900/90 to-navy-950"></div>
+
+            <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+                <!-- Tagline Badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-gold-500/10 text-gold-400 border border-gold-500/30 mb-4 backdrop-blur-md">
+                    Step Into Brilliance • Learning Today. Leading Tomorrow.
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 text-white">
+                    Samarthāyam <span class="text-gold-400">2.0</span>
+                </h1>
+                <p class="text-xl sm:text-2xl font-bold text-slate-200 mb-8 tracking-wide">
+                    Inter-School Competition <span class="text-accentRed-600 font-extrabold">2026</span>
+                </p>
+                <p class="max-w-3xl mx-auto text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+                    Organized with the aim of fostering learning, fun, and healthy competition among students,
+                    <span class="text-gold-400 font-semibold">Samarthāyam 2.0</span> was a grand success! The event saw
+                    a plethora of exciting activities, promoting camaraderie, skill development, and unforgettable
+                    memories for young minds.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="-mt-12 relative z-20 max-w-6xl mx-auto px-4">
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white rounded-2xl shadow-xl border border-slate-200/80 p-6 text-center divide-x-0 md:divide-x divide-slate-100">
+                <div class="p-4 group">
+                    <div
+                        class="text-3xl sm:text-5xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors">
+                        250+
+                    </div>
+                    <div class="text-xs sm:text-sm font-bold text-accentRed-600 mt-2 uppercase tracking-wider">
+                        Participants
+                    </div>
+                </div>
+                <div class="p-4 group">
+                    <div
+                        class="text-3xl sm:text-5xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors">
+                        15+
+                    </div>
+                    <div class="text-xs sm:text-sm font-bold text-accentRed-600 mt-2 uppercase tracking-wider">
+                        Schools
+                    </div>
+                </div>
+                <div class="p-4 group">
+                    <div
+                        class="text-3xl sm:text-5xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors">
+                        10
+                    </div>
+                    <div class="text-xs sm:text-sm font-bold text-accentRed-600 mt-2 uppercase tracking-wider">
+                        Events
+                    </div>
+                </div>
+                <div class="p-4 group">
+                    <div
+                        class="text-3xl sm:text-5xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors">
+                        5
+                    </div>
+                    <div class="text-xs sm:text-sm font-bold text-accentRed-600 mt-2 uppercase tracking-wider">
+                        Evaluators
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision, Mission & Foundational Values Section -->
+        <section class="py-20 max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-accentRed-600 tracking-widest uppercase">Our Core Philosophy</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-1">Foundational Values & Vision</h2>
+                <p class="text-slate-500 font-medium mt-2">
+                    Motto: <span class="text-gold-600 font-bold">"Learn to Lead"</span>
+                </p>
+            </div>
+
+            <!-- Values Cards -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12 text-center">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div
+                        class="w-12 h-12 bg-gold-500/10 text-gold-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold">
+                        💡
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900">Wisdom</h3>
+                    <p class="text-slate-600 text-sm mt-2">
+                        Fostering deep understanding, critical thinking, and lifelong learning.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div
+                        class="w-12 h-12 bg-accentRed-600/10 text-accentRed-600 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold">
+                        ⚖️
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900">Virtue</h3>
+                    <p class="text-slate-600 text-sm mt-2">
+                        Instilling character, strong ethics, and compassionate citizenship.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div
+                        class="w-12 h-12 bg-navy-900/10 text-navy-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-extrabold">
+                        ⭐
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900">Excellence</h3>
+                    <p class="text-slate-600 text-sm mt-2">
+                        Striving for brilliance across academics, leadership, and personal growth.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Vision & Mission Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-navy-900 text-white p-8 rounded-2xl shadow-lg border border-navy-800">
+                    <h3 class="text-2xl font-bold text-gold-400 mb-3 flex items-center gap-2">
+                        <span>👁️</span> Vision
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        Co-creating a stimulating learning environment where children blossom with happiness, curiosity,
+                        character and inspired leadership.
+                    </p>
+                </div>
+                <div class="bg-navy-900 text-white p-8 rounded-2xl shadow-lg border border-navy-800">
+                    <h3 class="text-2xl font-bold text-gold-400 mb-3 flex items-center gap-2">
+                        <span>🎯</span> Mission
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        Nurturing confident, innovative, responsible and global citizens of tomorrow with a strong sense
+                        of ethics and character.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Highlights / Media -->
+        <section class="py-12 max-w-6xl mx-auto px-4">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 pb-4 border-b border-slate-200">
+                <div>
+                    <span class="text-xs font-bold text-accentRed-600 tracking-widest uppercase"
+                        >Glimpse of Excellence</span
+                    >
+                    <h2 class="text-3xl font-extrabold text-navy-900 mt-1">Event Gallery & Results</h2>
+                </div>
+                <a
+                    href="#"
+                    class="text-navy-900 font-bold hover:text-gold-600 transition flex items-center gap-1 text-sm mt-3 sm:mt-0 group">
+                    View Full Photo Gallery <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-slate-200/80 transition duration-300 group">
+                    <div class="overflow-hidden h-64 relative bg-slate-100">
+                        <img
+                            src="https://placehold.co/600x400/0b192c/ffffff?text=Felicitation+Ceremony"
+                            alt="Felicitation Ceremony"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-accentRed-600 text-white shadow-md"
+                                >Highlights</span
+                            >
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy-900 group-hover:text-gold-600 transition-colors">
+                            Felicitation & Winners Announcement
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-2">
+                            Honoring exceptional achievements and recognizing extraordinary student talent.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-slate-200/80 transition duration-300 group">
+                    <div class="overflow-hidden h-64 relative bg-slate-100">
+                        <img
+                            src="https://placehold.co/600x400/0b192c/ffffff?text=Workshops+%26+Competitions"
+                            alt="Students Participating"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-500 text-navy-950 shadow-md"
+                                >Activities</span
+                            >
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy-900 group-hover:text-gold-600 transition-colors">
+                            Hands-on Workshops & Competitions
+                        </h3>
+                        <p class="text-sm text-slate-500 mt-2">
+                            Dynamic learning environments designed to unleash creative and intellectual potential.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <section class="py-20 bg-navy-900 text-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-14">
+                    <span class="text-xs font-bold text-gold-400 tracking-widest uppercase">Visionaries</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">School Leadership</h2>
+                    <div class="w-20 h-1 bg-accentRed-600 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto mb-12">
+                    <div
+                        class="bg-navy-950/60 rounded-2xl p-6 text-center border border-slate-800 hover:border-gold-500/50 transition">
+                        <img
+                            src="https://placehold.co/150x150/0b192c/fbbf24?text=NA"
+                            alt="Nitin Aggarwal"
+                            class="w-28 h-28 rounded-full mx-auto object-cover mb-4 ring-4 ring-gold-500" />
+                        <h3 class="font-bold text-white text-xl">Nitin Aggarwal</h3>
+                        <p class="text-sm font-semibold text-gold-400 uppercase tracking-wider mt-1">Chairman</p>
+                    </div>
+                    <div
+                        class="bg-navy-950/60 rounded-2xl p-6 text-center border border-slate-800 hover:border-gold-500/50 transition">
+                        <img
+                            src="https://placehold.co/150x150/0b192c/fbbf24?text=VA"
+                            alt="Vineet Aggarwal"
+                            class="w-28 h-28 rounded-full mx-auto object-cover mb-4 ring-4 ring-gold-500" />
+                        <h3 class="font-bold text-white text-xl">Vineet Aggarwal</h3>
+                        <p class="text-sm font-semibold text-gold-400 uppercase tracking-wider mt-1">
+                            Secretary General
+                        </p>
+                    </div>
+                </div>
+
+                <div class="max-w-md mx-auto">
+                    <div class="bg-navy-950/90 rounded-2xl p-8 text-center border-2 border-gold-500/40 shadow-2xl">
+                        <img
+                            src="https://placehold.co/150x150/0b192c/dc2626?text=PP"
+                            alt="Promila Pagore"
+                            class="w-32 h-32 rounded-full mx-auto object-cover mb-4 ring-4 ring-accentRed-600" />
+                        <h3 class="font-bold text-white text-2xl">Promila Pagore</h3>
+                        <p class="text-sm font-bold text-accentRed-600 uppercase tracking-widest mt-1">Principal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guests & Judges Section -->
+        <section class="py-20 max-w-6xl mx-auto px-4">
+            <div class="mb-16">
+                <div class="mb-8 border-l-4 border-accentRed-600 pl-4">
+                    <h2 class="text-2xl font-bold text-navy-900">Chief Guests</h2>
+                    <p class="text-sm text-slate-500 mt-0.5">Eminence who graced our event with their presence</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=NJ"
+                            alt="Dr. Nikita Jain"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Dr. Nikita Jain</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">
+                            HOD BBA and Associate Professor in Finance at IDEAL Institute of Management and Technology
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=RV"
+                            alt="Mrs. Rajesh Kr. Verma"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Mrs. Rajesh Kr. Verma</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Principal of Ganga Happy Secondary School</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=ST"
+                            alt="Ms. Shalini Tyagi"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Ms. Shalini Tyagi</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">
+                            HOD Science, Delhi International Secondary School, Jawahar Nagar, Delhi
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=HK"
+                            alt="Ms. Harsh Kalra"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Ms. Harsh Kalra</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">
+                            Senior Assistant Professor at the Ideal Institute of Management and Technology
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=T"
+                            alt="Mr. Tarunesh"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Mr. Tarunesh</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Science Faculty Member</p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=SG"
+                            alt="Dr. Sonal Goel"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Dr. Sonal Goel</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Academician and Management Professional</p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=NA"
+                            alt="Ms. Neha Aggarwal"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Ms. Neha Aggarwal</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Esteemed Management Member</p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=NA"
+                            alt="Ms. Neetu Aggarwal"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Ms. Neetu Aggarwal</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Esteemed Management Member</p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=NA"
+                            alt="Mr. Nitin Aggarwal"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Mr. Nitin Aggarwal</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Esteemed Management Member</p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=VA"
+                            alt="Mr. Vineet Aggarwal"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Mr. Vineet Aggarwal</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Esteemed Management Member</p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=MS"
+                            alt="Ms. Manisha Sharma"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Ms. Manisha Sharma</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">
+                            Principal, The Samarth School (Dilshad Garden Branch)
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/102a43?text=NC"
+                            alt="Ms. Neetu Chaudhary"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-accentRed-600/30" />
+                        <h4 class="font-bold text-navy-900 text-base">Ms. Neetu Chaudhary</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">
+                            Vice Principal, The Samarth School (Dilshad Garden Branch)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="mb-8 border-l-4 border-gold-500 pl-4">
+                    <h2 class="text-2xl font-bold text-navy-900">Panel of Judges</h2>
+                    <p class="text-sm text-slate-500 mt-0.5">Industry experts who evaluated the competitions</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/d97706?text=SR"
+                            alt="Mrs. Savita Rajpoot"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-gold-500/40" />
+                        <h4 class="font-bold text-navy-900 text-base">Mrs. Savita Rajpoot</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Artist & Director (Ojas Foundation)</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/d97706?text=SC"
+                            alt="Mr. Shivraj Choubey"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-gold-500/40" />
+                        <h4 class="font-bold text-navy-900 text-base">Mr. Shivraj Choubey</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Director, DISA Fine Arts Academy</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/d97706?text=SC"
+                            alt="Dr. Sandeep Singh Chauhan"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-gold-500/40" />
+                        <h4 class="font-bold text-navy-900 text-base">Dr. Sandeep Singh Chauhan</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Assistant Professor, Surajmal University</p>
+                    </div>
+                    <div
+                        class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md border border-slate-200/80 text-center transition">
+                        <img
+                            src="https://placehold.co/120x120/f1f5f9/d97706?text=GS"
+                            alt="Mr. Gyan Prakash Sharma"
+                            class="w-24 h-24 rounded-full mx-auto object-cover mb-3 ring-2 ring-gold-500/40" />
+                        <h4 class="font-bold text-navy-900 text-base">Mr. Gyan Prakash Sharma</h4>
+                        <p class="text-xs font-medium text-slate-500 mt-1">Divisional Manager</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Footer -->
+        <footer id="contact" class="bg-navy-950 text-slate-400 py-12 border-t-2 border-gold-500/30">
+            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 mb-8 pb-8 border-b border-slate-800">
+                <!-- School Info -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-2">The Samarth School</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        Main Wazirabad Road, Adjacent to West Jyoti Nagar, Delhi – 110093
+                    </p>
+                    <div class="text-xs space-y-1">
+                        <p><strong class="text-slate-300">Affiliation No:</strong> 2730096</p>
+                        <p><strong class="text-slate-300">School Code:</strong> 85056</p>
+                        <p><strong class="text-slate-300">School ID:</strong> 1106196</p>
+                    </div>
+                </div>
+
+                <!-- Contact Details -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-3">Contact Us</h3>
+                    <ul class="text-xs space-y-2">
+                        <li><strong class="text-slate-300">Enquiry Phone:</strong> +91 8287555045</li>
+                        <li><strong class="text-slate-300">Admission Phone:</strong> 8826546178</li>
+                        <li><strong class="text-slate-300">Landline:</strong> 011-35005440</li>
+                        <li>
+                            <strong class="text-slate-300">Email:</strong>
+                            <a href="mailto:infowr@thesamarthschool.edu.in" class="text-gold-400 hover:underline"
+                                >infowr@thesamarthschool.edu.in</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Connect & Portal Links -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-3">Quick Links & Socials</h3>
+                    <div class="flex flex-col space-y-2 text-xs font-semibold mb-4">
+                        <a href="https://thesamarthschool.edu.in" target="_blank" class="hover:text-white transition"
+                            >› Official Website</a
+                        >
+                    </div>
+                    <div class="flex items-center space-x-4 text-xs font-bold text-white">
+                        <a
+                            href="https://www.facebook.com/thesamarthschool"
+                            target="_blank"
+                            class="bg-navy-900 px-3 py-1.5 rounded border border-slate-800 hover:border-gold-500 transition"
+                            >Facebook</a
+                        >
+                        <a
+                            href="https://www.instagram.com/thesamarth_school/"
+                            target="_blank"
+                            class="bg-navy-900 px-3 py-1.5 rounded border border-slate-800 hover:border-gold-500 transition"
+                            >Instagram</a
+                        >
+                        <a
+                            href="https://youtube.com/@thesamarthschoolloniwr"
+                            target="_blank"
+                            class="bg-navy-900 px-3 py-1.5 rounded border border-slate-800 hover:border-gold-500 transition"
+                            >YouTube</a
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500">
+                © 2026 The Samarth School - Wazirabad Road. All rights reserved.
+            </div>
+        </footer>
+    </body>
+</html>
