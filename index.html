@@ -6,13 +6,25 @@
         <title>Samarthāyam 2.0 | The Samarth School - Wazirabad Road</title>
         <!-- Tailwind CSS CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
-        <script>tailwind.config = { theme: { extend: { colors: { navy: { 800: "#102A43", 900: "#0B192C", 950: "#030A16" }, gold: { 400: "#FBBF24", 500: "#F59E0B", 600: "#D97706" }, accentRed: { 600: "#DC2626", 700: "#B91C1C" } } } } };</script>
+        <script>
+            tailwind.config = { 
+                theme: { 
+                    extend: { 
+                        colors: { 
+                            navy: { 800: "#102A43", 900: "#0B192C", 950: "#030A16" }, 
+                            gold: { 400: "#FBBF24", 500: "#F59E0B", 600: "#D97706" }, 
+                            accentRed: { 600: "#DC2626", 700: "#B91C1C" } 
+                        } 
+                    } 
+                } 
+            };
+        </script>
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <style>
             body { font-family: "Plus Jakarta Sans", sans-serif; }
             .flip-card { perspective: 1000px; }
             .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); transform-style: preserve-3d; }
-            .flip-card:hover .flip-card-inner { transform: rotateY(180deg); transition-delay: 0.1s; }
+            .flip-card:hover .flip-card-inner, .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); transition-delay: 0.1s; }
             .flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; top: 0; left: 0; border-radius: 1rem; }
             .flip-card-back { transform: rotateY(180deg); }
         </style>
@@ -20,22 +32,24 @@
     <body class="bg-slate-50 text-slate-800 antialiased selection:bg-gold-500 selection:text-navy-950">
         <!-- Top Announcement Bar -->
         <div class="bg-navy-950 text-slate-300 text-xs py-1.5 px-4 border-b border-slate-800">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 text-center sm:text-left">
                 <div class="flex flex-wrap items-center gap-4 text-[11px] sm:text-xs"></div>
-                <div class="flex items-center gap-4"><a href="mailto:infowr@thesamarthschool.edu.in" class="hover:text-gold-400 transition">infowr@thesamarthschool.edu.in</a></div>
+                <div class="flex items-center gap-4"><a href="mailto:infowr@thesamarthschool.edu.in" class="hover:text-gold-400 transition text-[11px] sm:text-xs">infowr@thesamarthschool.edu.in</a></div>
             </div>
         </div>
 
         <!-- Navigation Header -->
         <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-                <div class="flex items-center space-x-3.5">
-                    <img src="https://thesamarthschool.edu.in/wp-content/uploads/2023/08/logo1-1-1.png" alt="The Samarth School Logo" class="h-12 sm:h-14 w-auto object-contain" />
+                <div class="flex items-center space-x-2.5 sm:space-x-3.5">
+                    <img src="https://thesamarthschool.edu.in/wp-content/uploads/2023/08/logo1-1-1.png" alt="The Samarth School Logo" class="h-10 sm:h-14 w-auto object-contain" />
                     <div>
-                        <span class="block text-base sm:text-lg font-extrabold text-navy-900 tracking-tight leading-none">THE SAMARTH SCHOOL</span>
-                        <span class="text-[10px] sm:text-[11px] text-accentRed-600 font-bold tracking-wide uppercase mt-1 block">Wazirabad Road • "Learn to Lead"</span>
+                        <span class="block text-xs sm:text-lg font-extrabold text-navy-900 tracking-tight leading-none">THE SAMARTH SCHOOL</span>
+                        <span class="text-[8px] sm:text-[11px] text-accentRed-600 font-bold tracking-wide uppercase mt-0.5 sm:mt-1 block">Wazirabad Road • "Learn to Lead"</span>
                     </div>
                 </div>
+
+                <!-- Desktop Navigation -->
                 <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-700 items-center">
                     <a href="index.html" class="text-gold-600 font-bold border-b-2 border-gold-500 py-1">Home</a>
                     <a href="rules.html" class="hover:text-gold-600 transition-colors py-1">Events and Guidelines</a>
@@ -43,38 +57,57 @@
                     <a href="result.html" class="hover:text-gold-600 transition-colors py-1">Result</a>
                     <a href="https://sites.google.com/thesamarthschool.edu.in/samarthayam/home?authuser=5" class="px-4 py-2 bg-navy-900 text-gold-400 rounded-lg hover:bg-navy-800 transition shadow-sm font-bold">Samarthāyam 1.0</a>
                 </nav>
+
+                <!-- Hamburger Button (Mobile) -->
+                <button id="menu-toggle" aria-label="Toggle Navigation Menu" class="md:hidden p-2 text-slate-700 hover:text-navy-900 focus:outline-none">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 font-semibold text-slate-700 shadow-lg">
+                <a href="index.html" class="block py-2 text-gold-600 font-bold border-l-4 border-gold-500 pl-2 bg-gold-50/50 rounded-r-lg">Home</a>
+                <a href="rules.html" class="block py-2 hover:text-gold-600 transition-colors pl-2">Events and Guidelines</a>
+                <a href="gallery.html" class="block py-2 hover:text-gold-600 transition-colors pl-2">Event Gallery</a>
+                <a href="result.html" class="block py-2 hover:text-gold-600 transition-colors pl-2">Result</a>
+                <a href="https://sites.google.com/thesamarthschool.edu.in/samarthayam/home?authuser=5" class="block mt-2 px-4 py-2.5 bg-navy-900 text-gold-400 text-center rounded-lg hover:bg-navy-800 transition font-bold shadow-sm">Samarthāyam 1.0</a>
             </div>
         </header>
 
         <!-- Hero Section -->
-        <section class="relative bg-navy-950 text-white py-10 lg:py-12 overflow-hidden">
+        <section class="relative bg-navy-950 text-white py-8 sm:py-10 lg:py-12 overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-900/90 to-navy-950"></div>
             <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
-                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-bold bg-gold-500/10 text-gold-400 border border-gold-500/30 mb-3 backdrop-blur-md tracking-wider">Step Into Brilliance • Learning Today. Leading Tomorrow.</div>
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-3 text-white">Samarthāyam <span class="text-gold-400 ml-1.5">2.0</span></h1>
-                <p class="text-lg sm:text-xl font-bold text-slate-200 mb-4 tracking-wide">Inter-School Competition <span class="text-accentRed-600 font-extrabold ml-1">2026</span></p>
-                <p class="max-w-3xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed font-normal">Organized with the aim of fostering learning, fun, and healthy competition among students, <span class="text-gold-400 font-semibold px-1">Samarthāyam 2.0</span> was a grand success! The event saw a plethora of exciting activities, promoting camaraderie, skill development, and unforgettable memories for young minds.</p>
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full text-[10px] sm:text-xs font-bold bg-gold-500/10 text-gold-400 border border-gold-500/30 mb-3 backdrop-blur-md tracking-wider">Step Into Brilliance • Learning Today. Leading Tomorrow.</div>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-2 sm:mb-3 text-white">Samarthāyam <span class="text-gold-400 ml-1">2.0</span></h1>
+                <p class="text-base sm:text-xl font-bold text-slate-200 mb-3 sm:mb-4 tracking-wide">Inter-School Competition <span class="text-accentRed-600 font-extrabold ml-1">2026</span></p>
+                <p class="max-w-3xl mx-auto text-slate-300 text-xs sm:text-base leading-relaxed font-normal">Organized with the aim of fostering learning, fun, and healthy competition among students, <span class="text-gold-400 font-semibold px-0.5">Samarthāyam 2.0</span> was a grand success! The event saw a plethora of exciting activities, promoting camaraderie, skill development, and unforgettable memories for young minds.</p>
             </div>
         </section>
 
         <!-- Stats Section -->
-        <section class="-mt-8 relative z-20 max-w-6xl mx-auto px-4 mb-2">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-white rounded-2xl shadow-xl border border-slate-200/80 p-4 text-center divide-x-0 md:divide-x divide-slate-100">
+        <section class="-mt-6 sm:-mt-8 relative z-20 max-w-6xl mx-auto px-4 mb-2">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-white rounded-2xl shadow-xl border border-slate-200/80 p-3 sm:p-4 text-center divide-x-0 md:divide-x divide-slate-100">
                 <div class="p-2 group">
                     <div class="counter-value text-2xl sm:text-4xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors" data-target="250" data-suffix="+">0+</div>
-                    <div class="text-[11px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Participants</div>
+                    <div class="text-[10px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Participants</div>
                 </div>
                 <div class="p-2 group">
                     <div class="counter-value text-2xl sm:text-4xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors" data-target="15" data-suffix="+">0+</div>
-                    <div class="text-[11px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Schools</div>
+                    <div class="text-[10px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Schools</div>
                 </div>
                 <div class="p-2 group">
                     <div class="counter-value text-2xl sm:text-4xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors" data-target="7" data-suffix="">0</div>
-                    <div class="text-[11px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Events</div>
+                    <div class="text-[10px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Events</div>
                 </div>
                 <div class="p-2 group">
                     <div class="counter-value text-2xl sm:text-4xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors" data-target="6" data-suffix="">0</div>
-                    <div class="text-[11px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Evaluators</div>
+                    <div class="text-[10px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Evaluators</div>
                 </div>
             </div>
         </section>
@@ -90,22 +123,22 @@
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     <div class="group bg-navy-950/70 rounded-2xl p-5 text-center border border-slate-800 hover:border-gold-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-500/10 flex flex-col items-center justify-between">
                         <div class="flex flex-col items-center">
-                            <img src="assets/images/welcomeGuest/12.png" alt="Nitin Aggarwal" class="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
-                            <h3 class="font-bold text-white text-lg mt-1">Nitin Aggarwal</h3>
+                            <img src="assets/images/welcomeGuest/12.png" alt="Nitin Aggarwal" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
+                            <h3 class="font-bold text-white text-base sm:text-lg mt-1">Nitin Aggarwal</h3>
                             <p class="text-[11px] font-semibold text-gold-400 uppercase tracking-wider mt-0.5">Chairman</p>
                         </div>
                     </div>
                     <div class="group bg-navy-950/70 rounded-2xl p-5 text-center border border-slate-800 hover:border-gold-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-500/10 flex flex-col items-center justify-between">
                         <div class="flex flex-col items-center">
-                            <img src="assets/images/welcomeGuest/13.png" alt="Vineet Aggarwal" class="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
-                            <h3 class="font-bold text-white text-lg mt-1">Vineet Aggarwal</h3>
+                            <img src="assets/images/welcomeGuest/13.png" alt="Vineet Aggarwal" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
+                            <h3 class="font-bold text-white text-base sm:text-lg mt-1">Vineet Aggarwal</h3>
                             <p class="text-[11px] font-semibold text-gold-400 uppercase tracking-wider mt-0.5">Secretary General</p>
                         </div>
                     </div>
                     <div class="group bg-navy-950/70 rounded-2xl p-5 text-center border border-slate-800 hover:border-accentRed-600/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-accentRed-600/10 flex flex-col items-center justify-between sm:col-span-2 lg:col-span-1">
                         <div class="flex flex-col items-center">
-                            <img src="assets/images/welcomeGuest/2.png" alt="Promila Pagore" class="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-accentRed-600 shadow-xl transition-transform duration-300 group-hover:scale-105" />
-                            <h3 class="font-bold text-white text-lg mt-1">Promila Pagore</h3>
+                            <img src="assets/images/welcomeGuest/2.png" alt="Promila Pagore" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-accentRed-600 shadow-xl transition-transform duration-300 group-hover:scale-105" />
+                            <h3 class="font-bold text-white text-base sm:text-lg mt-1">Promila Pagore</h3>
                             <p class="text-[11px] font-semibold text-accentRed-600 uppercase tracking-wider mt-0.5">Principal</p>
                         </div>
                     </div>
@@ -136,16 +169,18 @@
                 </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                     <div class="group bg-navy-900/80 rounded-2xl p-5 text-center border border-slate-800 hover:border-gold-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-500/10 flex flex-col items-center">
-                        <img src="assets/images/welcomeGuest/10.png" alt="Ms. Neha Aggarwal" class="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
-                        <h4 class="font-bold text-white text-lg mt-1">Ms. Neha Aggarwal</h4>
+                        <img src="assets/images/welcomeGuest/10.png" alt="Ms. Neha Aggarwal" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
+                        <h4 class="font-bold text-white text-base sm:text-lg mt-1">Ms. Neha Aggarwal</h4>
                     </div>
-                    <div class="group bg-navy-900/80 rounded-2xl p-5 text-center border border-slate-800 hover:border-gold-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-500/10 flex flex-col items-center">
-                        <img src="assets/images/welcomeGuest/22.png" alt="Shri J.P. Sagar" class="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
-                        <h4 class="font-bold text-white text-lg mt-1">Shri J.P. Sagar</h4>
-                    </div>
+                   
                     <div class="group bg-navy-900/80 rounded-2xl p-5 text-center border border-slate-800 hover:border-gold-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-500/10 flex flex-col items-center sm:col-span-2 lg:col-span-1">
-                        <img src="assets/images/welcomeGuest/11.png" alt="Ms. Neetu Aggarwal" class="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
-                        <h4 class="font-bold text-white text-lg mt-1">Ms. Neetu Aggarwal</h4>
+                        <img src="assets/images/welcomeGuest/11.png" alt="Ms. Neetu Aggarwal" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
+                        <h4 class="font-bold text-white text-base sm:text-lg mt-1">Ms. Neetu Aggarwal</h4>
+                    </div>
+                    
+                    <div class="group bg-navy-900/80 rounded-2xl p-5 text-center border border-slate-800 hover:border-gold-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-500/10 flex flex-col items-center">
+                        <img src="assets/images/welcomeGuest/22.png" alt="Shri J.P. Sagar" class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-xl transition-transform duration-300 group-hover:scale-105" />
+                        <h4 class="font-bold text-white text-base sm:text-lg mt-1">Shri J.P. Sagar</h4>
                     </div>
                 </div>
             </div>
@@ -169,17 +204,17 @@
                 <div class="text-center mb-5">
                     <span class="text-[11px] font-bold text-gold-400 tracking-widest uppercase">Eminent Evaluators</span>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">Esteemed Judges</h2>
-                    <p class="text-xs text-slate-300 mt-1">Eminent experts who evaluated our events • Hover over cards for details</p>
+                    <p class="text-xs text-slate-300 mt-1">Eminent experts who evaluated our events • Tap/Hover over cards for details</p>
                     <div class="w-12 h-1 bg-accentRed-600 mx-auto mt-2 rounded-full"></div>
                 </div>
                 <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
                     <!-- Judge 1 -->
-                    <div class="flip-card h-80 w-full">
+                    <div class="flip-card h-80 w-full cursor-pointer">
                         <div class="flip-card-inner">
                             <div class="flip-card-front bg-navy-950/80 rounded-2xl p-5 text-center border border-slate-800 shadow-lg flex flex-col items-center justify-center hover:border-gold-500/50 transition">
                                 <img src="assets/images/welcomeGuest/3.png" alt="Dr. Nikita Jain" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-md" />
                                 <h4 class="font-bold text-white text-lg">Dr. Nikita Jain</h4>
-                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Hover for Profile ↺</span>
+                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Tap for Profile ↺</span>
                             </div>
                             <div class="flip-card-back bg-white rounded-2xl p-5 text-center border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-center text-navy-900">
                                 <div class="flex flex-col items-center mb-2">
@@ -197,12 +232,12 @@
                         </div>
                     </div>
                     <!-- Judge 2 -->
-                    <div class="flip-card h-80 w-full">
+                    <div class="flip-card h-80 w-full cursor-pointer">
                         <div class="flip-card-inner">
                             <div class="flip-card-front bg-navy-950/80 rounded-2xl p-5 text-center border border-slate-800 shadow-lg flex flex-col items-center justify-center hover:border-gold-500/50 transition">
                                 <img src="assets/images/welcomeGuest/8.png" alt="Mr. Tarunesh" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-md" />
                                 <h4 class="font-bold text-white text-lg">Mr. Tarunesh</h4>
-                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Hover for Profile ↺</span>
+                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Tap for Profile ↺</span>
                             </div>
                             <div class="flip-card-back bg-white rounded-2xl p-5 text-center border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-center text-navy-900">
                                 <div class="flex flex-col items-center mb-2">
@@ -220,12 +255,12 @@
                         </div>
                     </div>
                     <!-- Judge 3 -->
-                    <div class="flip-card h-80 w-full">
+                    <div class="flip-card h-80 w-full cursor-pointer">
                         <div class="flip-card-inner">
                             <div class="flip-card-front bg-navy-950/80 rounded-2xl p-5 text-center border border-slate-800 shadow-lg flex flex-col items-center justify-center hover:border-gold-500/50 transition">
                                 <img src="assets/images/welcomeGuest/7.png" alt="Ms. Harsh Kalra" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-md" />
                                 <h4 class="font-bold text-white text-lg">Ms. Harsh Kalra</h4>
-                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Hover for Profile ↺</span>
+                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Tap for Profile ↺</span>
                             </div>
                             <div class="flip-card-back bg-white rounded-2xl p-5 text-center border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-center text-navy-900">
                                 <div class="flex flex-col items-center mb-2">
@@ -243,12 +278,12 @@
                         </div>
                     </div>
                     <!-- Judge 4 -->
-                    <div class="flip-card h-80 w-full">
+                    <div class="flip-card h-80 w-full cursor-pointer">
                         <div class="flip-card-inner">
                             <div class="flip-card-front bg-navy-950/80 rounded-2xl p-5 text-center border border-slate-800 shadow-lg flex flex-col items-center justify-center hover:border-gold-500/50 transition">
                                 <img src="assets/images/welcomeGuest/9.png" alt="Dr. Sonal Goel" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-md" />
                                 <h4 class="font-bold text-white text-lg">Dr. Sonal Goel</h4>
-                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Hover for Profile ↺</span>
+                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Tap for Profile ↺</span>
                             </div>
                             <div class="flip-card-back bg-white rounded-2xl p-5 text-center border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-center text-navy-900">
                                 <div class="flex flex-col items-center mb-2">
@@ -266,12 +301,12 @@
                         </div>
                     </div>
                     <!-- Judge 5 -->
-                    <div class="flip-card h-80 w-full">
+                    <div class="flip-card h-80 w-full cursor-pointer">
                         <div class="flip-card-inner">
                             <div class="flip-card-front bg-navy-950/80 rounded-2xl p-5 text-center border border-slate-800 shadow-lg flex flex-col items-center justify-center hover:border-gold-500/50 transition">
                                 <img src="assets/images/welcomeGuest/4.png" alt="Mrs. Rajesh Kr. Verma" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-md" />
                                 <h4 class="font-bold text-white text-lg">Mrs. Rajesh Kr. Verma</h4>
-                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Hover for Profile ↺</span>
+                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Tap for Profile ↺</span>
                             </div>
                             <div class="flip-card-back bg-white rounded-2xl p-5 text-center border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-center text-navy-900">
                                 <div class="flex flex-col items-center mb-2">
@@ -289,12 +324,12 @@
                         </div>
                     </div>
                     <!-- Judge 6 -->
-                    <div class="flip-card h-80 w-full">
+                    <div class="flip-card h-80 w-full cursor-pointer">
                         <div class="flip-card-inner">
                             <div class="flip-card-front bg-navy-950/80 rounded-2xl p-5 text-center border border-slate-800 shadow-lg flex flex-col items-center justify-center hover:border-gold-500/50 transition">
                                 <img src="assets/images/welcomeGuest/5.png" alt="Ms. Shalini Tyagi" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-3 ring-4 ring-gold-500 shadow-md" />
                                 <h4 class="font-bold text-white text-lg">Ms. Shalini Tyagi</h4>
-                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Hover for Profile ↺</span>
+                                <span class="text-[11px] font-bold text-gold-400 bg-navy-900 border border-gold-500/30 px-3 py-1 rounded-full mt-2.5 flex items-center gap-1 uppercase tracking-wider">Tap for Profile ↺</span>
                             </div>
                             <div class="flip-card-back bg-white rounded-2xl p-5 text-center border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-center text-navy-900">
                                 <div class="flex flex-col items-center mb-2">
@@ -320,7 +355,7 @@
             <div class="text-center mb-5">
                 <span class="text-[11px] font-bold text-accentRed-600 tracking-widest uppercase">Event Highlights & Results</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">Glimpse of Inter-School Competition</h2>
-                <p class="text-xs text-slate-500 mt-1">Hover over any card to view winners • Click card to open full detailed results</p>
+                <p class="text-xs text-slate-500 mt-1">Tap/Hover card to view winners • Click card to open full detailed results</p>
                 <div class="w-12 h-1 bg-gold-500 mx-auto mt-2 rounded-full"></div>
             </div>
 
@@ -338,7 +373,7 @@
                                     <h3 class="text-base font-extrabold text-navy-900 group-hover:text-gold-600 transition-colors">Imagination Relay</h3>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Creative thinking and teamwork event testing student storytelling agility.</p>
                                 </div>
-                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover for Results ↺</span>
+                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover/Tap Results ↺</span>
                             </div>
                         </div>
                         <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-5 border-2 border-gold-500 shadow-2xl flex flex-col justify-between items-center text-center">
@@ -375,7 +410,7 @@
                                     <h3 class="text-base font-extrabold text-navy-900 group-hover:text-gold-600 transition-colors">Dramatic Monologue</h3>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Solo theatrical performance showcasing expression, emotion, and stage presence.</p>
                                 </div>
-                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover for Results ↺</span>
+                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover/Tap Results ↺</span>
                             </div>
                         </div>
                         <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-5 border-2 border-gold-500 shadow-2xl flex flex-col justify-between items-center text-center">
@@ -412,7 +447,7 @@
                                     <h3 class="text-base font-extrabold text-navy-900 group-hover:text-gold-600 transition-colors">Message to the Future Generation</h3>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Insightful speeches expressing vision and hope for tomorrow's world.</p>
                                 </div>
-                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover for Results ↺</span>
+                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover/Tap Results ↺</span>
                             </div>
                         </div>
                         <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-5 border-2 border-gold-500 shadow-2xl flex flex-col justify-between items-center text-center">
@@ -449,7 +484,7 @@
                                     <h3 class="text-base font-extrabold text-navy-900 group-hover:text-gold-600 transition-colors">Newsroom Simulation</h3>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Dynamic broadcasting roleplay simulating live journalism and reporting.</p>
                                 </div>
-                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover for Results ↺</span>
+                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover/Tap Results ↺</span>
                             </div>
                         </div>
                         <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-5 border-2 border-gold-500 shadow-2xl flex flex-col justify-between items-center text-center">
@@ -486,7 +521,7 @@
                                     <h3 class="text-base font-extrabold text-navy-900 group-hover:text-gold-600 transition-colors">Science Storytellers 2040</h3>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Futuristic science narratives combining technological vision with creative writing.</p>
                                 </div>
-                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover for Results ↺</span>
+                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover/Tap Results ↺</span>
                             </div>
                         </div>
                         <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-5 border-2 border-gold-500 shadow-2xl flex flex-col justify-between items-center text-center">
@@ -523,7 +558,7 @@
                                     <h3 class="text-base font-extrabold text-navy-900 group-hover:text-gold-600 transition-colors">Scirang</h3>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Art meets science in vibrant Rangoli concepts depicting scientific concepts.</p>
                                 </div>
-                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover for Results ↺</span>
+                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover/Tap Results ↺</span>
                             </div>
                         </div>
                         <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-5 border-2 border-gold-500 shadow-2xl flex flex-col justify-between items-center text-center">
@@ -560,7 +595,7 @@
                                     <h3 class="text-base font-extrabold text-navy-900 group-hover:text-gold-600 transition-colors">Science Beats with Swag</h3>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Rhythmic performance blending scientific facts with music and performance art.</p>
                                 </div>
-                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover for Results ↺</span>
+                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover/Tap Results ↺</span>
                             </div>
                         </div>
                         <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-5 border-2 border-gold-500 shadow-2xl flex flex-col justify-between items-center text-center">
@@ -597,7 +632,7 @@
                                     <h3 class="text-base font-extrabold text-navy-900 group-hover:text-gold-600 transition-colors">Jhankaar</h3>
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">Enthralling classical and contemporary dance performance competition.</p>
                                 </div>
-                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover for Results ↺</span>
+                                <span class="text-[11px] font-bold text-accentRed-600 bg-red-50 border border-red-200/60 px-3 py-1 rounded-full mt-2 flex items-center gap-1 uppercase tracking-wider">Hover/Tap Results ↺</span>
                             </div>
                         </div>
                         <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-5 border-2 border-gold-500 shadow-2xl flex flex-col justify-between items-center text-center">
@@ -624,20 +659,20 @@
 
             <!-- Overall Winner Championship Banner -->
             <div class="mt-6 bg-gradient-to-r from-navy-900 via-navy-950 to-navy-900 text-white rounded-2xl p-5 shadow-xl border-2 border-gold-500/50 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-                <div class="flex items-center gap-3.5">
+                <div class="flex flex-col sm:flex-row items-center gap-3.5">
                     <span class="text-3xl sm:text-4xl">🏆</span>
                     <div>
                         <span class="text-[11px] font-bold uppercase tracking-widest text-gold-400">Overall Winner Championship</span>
                         <h3 class="text-lg sm:text-2xl font-extrabold text-white mt-0.5">Bal Bharati Public School, IP Yojna</h3>
                     </div>
                 </div>
-                <a href="result.html" class="px-5 py-2 bg-gold-500 text-navy-950 font-extrabold text-xs sm:text-sm rounded-xl hover:bg-gold-400 transition shadow-md whitespace-nowrap">View Complete Scoreboard →</a>
+                <a href="result.html" class="w-full sm:w-auto px-5 py-2.5 bg-gold-500 text-navy-950 font-extrabold text-xs sm:text-sm rounded-xl hover:bg-gold-400 transition shadow-md text-center whitespace-nowrap">View Complete Scoreboard →</a>
             </div>
         </section>
 
         <!-- Detailed Footer -->
         <footer id="contact" class="bg-navy-950 text-slate-400 py-8 border-t-2 border-gold-500/30">
-            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-6 mb-5 pb-5 border-b border-slate-800">
+            <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-5 pb-5 border-b border-slate-800">
                 <div>
                     <h3 class="text-base font-bold text-white mb-2">The Samarth School</h3>
                     <p class="text-xs text-slate-400 leading-relaxed mb-2.5">Main Wazirabad Road, Adjacent to West Jyoti Nagar, Delhi – 110093</p>
@@ -656,12 +691,12 @@
                         <li><strong class="text-slate-300">Email:</strong> <a href="mailto:infowr@thesamarthschool.edu.in" class="text-gold-400 hover:underline">infowr@thesamarthschool.edu.in</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="sm:col-span-2 md:col-span-1">
                     <h3 class="text-base font-bold text-white mb-2">Quick Links & Socials</h3>
                     <div class="flex flex-col space-y-1.5 text-xs font-semibold mb-2.5">
                         <a href="https://thesamarthschool.edu.in" target="_blank" class="hover:text-white transition">› Official Website</a>
                     </div>
-                    <div class="flex items-center space-x-2.5 text-xs font-bold text-white">
+                    <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-white">
                         <a href="https://www.facebook.com/thesamarthschool" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">Facebook</a>
                         <a href="https://www.instagram.com/thesamarth_school/" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">Instagram</a>
                         <a href="https://youtube.com/@thesamarthschoolloniwr" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">YouTube</a>
@@ -671,9 +706,38 @@
             <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500">© 2026 The Samarth School - Wazirabad Road. All rights reserved.</div>
         </footer>
 
-        <!-- Counter Animation Script -->
+        <!-- Navigation and Animation Scripts -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+                // Mobile Hamburger Toggle
+                const menuToggle = document.getElementById("menu-toggle");
+                const mobileMenu = document.getElementById("mobile-menu");
+                const menuIcon = document.getElementById("menu-icon");
+                const closeIcon = document.getElementById("close-icon");
+
+                if (menuToggle && mobileMenu) {
+                    menuToggle.addEventListener("click", () => {
+                        mobileMenu.classList.toggle("hidden");
+                        menuIcon.classList.toggle("hidden");
+                        closeIcon.classList.toggle("hidden");
+                    });
+                }
+
+                // Touch support for flip cards on touch devices
+                const flipCards = document.querySelectorAll(".flip-card");
+                flipCards.forEach(card => {
+                    card.addEventListener("click", (e) => {
+                        if (window.innerWidth < 1024) {
+                            // Don't prevent default if user clicked on a link inside the flipped card
+                            if (e.target.closest('a') && card.classList.contains('flipped')) {
+                                return;
+                            }
+                            card.classList.toggle("flipped");
+                        }
+                    });
+                });
+
+                // Counter Animation Script
                 const counters = document.querySelectorAll(".counter-value");
                 const duration = 1500;
                 const startCounting = (el) => {
