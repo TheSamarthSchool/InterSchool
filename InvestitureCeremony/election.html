@@ -363,7 +363,7 @@
 
         <script>
             // Paste your deployed Google Apps Script Exec URL here:
-            const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz3_MKIfZ6d53UgX2dgrOHrspFKXqh9btBiO6STm3jDjpmsQFaHx7EcoGXN9vaU5F5k0g/exec";
+            const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxtRHz3O0M_xxMiXmrOqOdLtkNZwgCxlzToeuB_8e_iLRwJXrgaIi-LotegyItAsDrpRA/exec";
 
             let isSubmitting = false;
             let countdownInterval = null;
@@ -441,7 +441,9 @@
                 btn.disabled = true;
                 btn.innerText = "Submitting Vote...";
 
+                // UPDATED PAYLOAD: Generates local submission timestamp
                 const payload = {
+                    timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
                     studentName: name,
                     studentRoll: roll,
                     studentClass: document.getElementById("student-class").value,
