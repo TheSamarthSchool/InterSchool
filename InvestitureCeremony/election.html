@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Student Elections Voting Portal 2026 | The Samarth School</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = { 
+                theme: { 
+                    extend: { 
+                        colors: { 
+                            navy: { 800: "#102A43", 900: "#0B192C", 950: "#030A16" }, 
+                            gold: { 400: "#FBBF24", 500: "#F59E0B", 600: "#D97706" }, 
+                            accentRed: { 600: "#DC2626", 700: "#B91C1C" } 
+                        } 
+                    } 
+                } 
+            };
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <style>
+            body { font-family: "Plus Jakarta Sans", sans-serif; }
+            .candidate-card input[type="radio"]:checked + label {
+                border-color: #F59E0B;
+                background-color: #FFFBEB;
+                box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.25);
+            }
+            .candidate-card input[type="radio"]:checked + label .check-badge {
+                display: flex;
+            }
+            .candidate-card input[type="radio"]:checked + label img {
+                transform: scale(1.05);
+                border-color: #D97706;
+            }
+        </style>
+    </head>
+    <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+        
+        <div>
+            <!-- Header -->
+            <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://thesamarthschool.edu.in/wp-content/uploads/2023/08/logo1-1-1.png" alt="The Samarth School Logo" class="h-10 sm:h-14 w-auto object-contain" />
+                        <div>
+                            <span class="block text-sm sm:text-lg font-extrabold text-navy-900 tracking-tight leading-none">THE SAMARTH SCHOOL</span>
+                            <span class="text-[9px] sm:text-[11px] text-accentRed-600 font-bold tracking-wide uppercase mt-0.5 block">Official Student Elections 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Hero Banner -->
+            <section class="bg-navy-950 text-white py-8 border-b-4 border-gold-500">
+                <div class="max-w-5xl mx-auto px-4 text-center">
+                    <span class="inline-block px-3 py-1 text-xs font-bold bg-gold-500/10 text-gold-400 border border-gold-500/30 rounded-full mb-2">Student Council Elections 2026</span>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-white">Cast Your Official Vote</h1>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2">Select your Class to display candidate photos and cast your vote.</p>
+                </div>
+            </section>
+
+            <!-- Main Voting Form -->
+            <main class="max-w-6xl mx-auto px-4 py-8 relative">
+                
+                <!-- On-Screen Error Notice -->
+                <div id="error-notice" class="hidden max-w-3xl mx-auto bg-red-50 border-2 border-accentRed-600 text-accentRed-700 rounded-2xl p-4 text-center font-bold text-sm mb-6 shadow-sm">
+                    ⚠️ <span id="error-message">Unable to reach the server. Please check your connection and try again.</span>
+                </div>
+
+                <form id="voting-form" onsubmit="submitToGoogleSheet(event)">
+                    
+                    <!-- Voter Information -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 mb-8">
+                        <h2 class="text-lg font-extrabold text-navy-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-full bg-navy-900 text-gold-400 text-xs flex items-center justify-center font-bold">1</span>
+                            Voter Authentication Details
+                        </h2>
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Full Name <span class="text-accentRed-600">*</span></label>
+                                <input type="text" id="student-name" required placeholder="Enter student full name" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none" />
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Roll No / Admission No <span class="text-accentRed-600">*</span></label>
+                                <input type="text" id="student-roll" required placeholder="e.g. SS-2031" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none" />
+                                <p class="text-[10px] text-slate-400 mt-1">Used only to prevent duplicate voting.</p>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Class <span class="text-accentRed-600">*</span></label>
+                                <select id="student-class" required onchange="handleClassChange()" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none font-semibold text-slate-800">
+                                    <option value="" disabled selected>Select Class</option>
+                                    <option value="Class III">Class III</option>
+                                    <option value="Class IV">Class IV</option>
+                                    <option value="Class V">Class V</option>
+                                    <option value="Class VI">Class VI</option>
+                                    <option value="Class VII">Class VII</option>
+                                    <option value="Class VIII">Class VIII</option>
+                                    <option value="Class IX">Class IX</option>
+                                    <option value="Class X">Class X</option>
+                                    <option value="Class XI">Class XI</option>
+                                    <option value="Class XII">Class XII</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Section <span class="text-accentRed-600">*</span></label>
+                                <select id="student-section" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none font-semibold text-slate-800">
+                                    <option value="" disabled selected>Select Section</option>
+                                    <option value="Section A">Section A</option>
+                                    <option value="Section B">Section B</option>
+                                    <option value="Section C">Section C</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prompt to Select Class First -->
+                    <div id="select-class-notice" class="bg-amber-50 border-2 border-amber-300 text-amber-900 rounded-2xl p-6 text-center font-bold text-sm my-6">
+                        ⚠️ Please select your Class above to view your Wing's candidates.
+                    </div>
+
+                    <!-- SENIOR WING CANDIDATES (Classes VI - XII) -->
+                    <div id="senior-wing-section" class="hidden mb-10">
+                        <div class="bg-navy-900 text-white p-4 rounded-t-2xl flex items-center justify-between">
+                            <h2 class="text-base sm:text-lg font-extrabold flex items-center gap-2">🎓 Senior Wing Candidates (Class XII)</h2>
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-gold-500 text-navy-950 rounded-full">Senior Ballot</span>
+                        </div>
+
+                        <div class="bg-slate-100/70 p-6 sm:p-8 rounded-b-2xl border-x border-b border-slate-200 space-y-10">
+                            
+                            <!-- Senior Head Boy -->
+                            <div>
+                                <h3 class="text-base sm:text-lg font-extrabold text-navy-900 mb-5 flex items-center gap-2 border-b border-slate-300 pb-2">
+                                    👨‍🎓 Choose Senior Head Boy (Select 1)
+                                </h3>
+                                <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                                    <!-- Yash Pawar -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="senior-head-boy" id="shb-yash" value="Yash Pawar" class="sr-only" />
+                                        <label for="shb-yash" class="block bg-white rounded-2xl p-6 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-4 right-4 bg-gold-500 text-navy-950 w-8 h-8 rounded-full items-center justify-center text-sm font-extrabold shadow-md transform scale-110 transition-transform">✓</div>
+                                            <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-4">
+                                                <img src="../InvestitureCeremony/Senior/YashPawar.JPG" alt="Yash Pawar" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-xl tracking-tight">Yash Pawar</h4>
+                                            <span class="inline-block mt-2 text-xs font-extrabold text-amber-800 bg-amber-100 px-3.5 py-1 rounded-full border border-amber-300 uppercase tracking-wider">Freedom House</span>
+                                            <span class="block text-sm font-bold text-slate-500 mt-1">Class XII-B</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Lakshya Choudhary -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="senior-head-boy" id="shb-lakshya" value="Lakshya Choudhary" class="sr-only" />
+                                        <label for="shb-lakshya" class="block bg-white rounded-2xl p-6 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-4 right-4 bg-gold-500 text-navy-950 w-8 h-8 rounded-full items-center justify-center text-sm font-extrabold shadow-md transform scale-110 transition-transform">✓</div>
+                                            <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-4">
+                                                <img src="../InvestitureCeremony/Senior/LakshayChaudhary.JPG" alt="Lakshya Choudhary" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-xl tracking-tight">Lakshya Choudhary</h4>
+                                            <span class="inline-block mt-2 text-xs font-extrabold text-emerald-800 bg-emerald-100 px-3.5 py-1 rounded-full border border-emerald-300 uppercase tracking-wider">Unity House</span>
+                                            <span class="block text-sm font-bold text-slate-500 mt-1">Class XII-A</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Senior Head Girl -->
+                            <div>
+                                <h3 class="text-base sm:text-lg font-extrabold text-navy-900 mb-5 flex items-center gap-2 border-b border-slate-300 pb-2">
+                                    👩‍🎓 Choose Senior Head Girl (Select 1)
+                                </h3>
+                                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                                    <!-- Vanshika Sharma -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="senior-head-girl" id="shg-vanshika" value="Vanshika Sharma" class="sr-only" />
+                                        <label for="shg-vanshika" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Senior/VanshikaSharma.JPG" alt="Vanshika Sharma" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Vanshika Sharma</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-purple-800 bg-purple-100 px-3 py-0.5 rounded-full border border-purple-200 uppercase">Dignity House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class XII-B</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Tanishka Gupta -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="senior-head-girl" id="shg-tanishka" value="Tanishka Gupta" class="sr-only" />
+                                        <label for="shg-tanishka" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Senior/TanishkaGupta.JPG" alt="Tanishka Gupta" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Tanishka Gupta</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-emerald-800 bg-emerald-100 px-3 py-0.5 rounded-full border border-emerald-200 uppercase">Unity House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class XII-D</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Dolfi Singh -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="senior-head-girl" id="shg-dolfi" value="Dolfi Singh" class="sr-only" />
+                                        <label for="shg-dolfi" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Senior/dolfhi.JPG" alt="Dolfi Singh" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Dolfi Singh</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-sky-800 bg-sky-100 px-3 py-0.5 rounded-full border border-sky-200 uppercase">Peace House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class XII-A</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Divya Yadav -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="senior-head-girl" id="shg-divya" value="Divya Yadav" class="sr-only" />
+                                        <label for="shg-divya" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Senior/divyaYadav.JPG" alt="Divya Yadav" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Divya Yadav</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-sky-800 bg-sky-100 px-3 py-0.5 rounded-full border border-sky-200 uppercase">Peace House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class XII-A</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JUNIOR WING CANDIDATES (Classes III - V) -->
+                    <div id="junior-wing-section" class="hidden mb-10">
+                        <div class="bg-navy-900 text-white p-4 rounded-t-2xl flex items-center justify-between">
+                            <h2 class="text-base sm:text-lg font-extrabold flex items-center gap-2">🎒 Junior Wing Candidates (Class V)</h2>
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-gold-500 text-navy-950 rounded-full">Junior Ballot</span>
+                        </div>
+
+                        <div class="bg-slate-100/70 p-6 sm:p-8 rounded-b-2xl border-x border-b border-slate-200 space-y-10">
+                            
+                            <!-- Junior Head Boy -->
+                            <div>
+                                <h3 class="text-base sm:text-lg font-extrabold text-navy-900 mb-5 flex items-center gap-2 border-b border-slate-300 pb-2">
+                                    👦 Choose Junior Head Boy (Select 1)
+                                </h3>
+                                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                                    <!-- Jainesh -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="junior-head-boy" id="jhb-jainesh" value="Jainesh" class="sr-only" />
+                                        <label for="jhb-jainesh" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Junior/jainesh.png" alt="Jainesh" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Jainesh</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-emerald-800 bg-emerald-100 px-3 py-0.5 rounded-full border border-emerald-200 uppercase">Unity House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class V-A</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Rudra Garg -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="junior-head-boy" id="jhb-rudra" value="Rudra Garg" class="sr-only" />
+                                        <label for="jhb-rudra" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Junior/rudraGarg.png" alt="Rudra Garg" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Rudra Garg</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-sky-800 bg-sky-100 px-3 py-0.5 rounded-full border border-sky-200 uppercase">Peace House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class V-A</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Yakshith Kumar -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="junior-head-boy" id="jhb-yakshith" value="Yakshith Kumar" class="sr-only" />
+                                        <label for="jhb-yakshith" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Junior/Yakshith%20Kuamar.png" alt="Yakshith Kumar" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Yakshith Kumar</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-purple-800 bg-purple-100 px-3 py-0.5 rounded-full border border-purple-200 uppercase">Dignity House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class V-B</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Junior Head Girl -->
+                            <div>
+                                <h3 class="text-base sm:text-lg font-extrabold text-navy-900 mb-5 flex items-center gap-2 border-b border-slate-300 pb-2">
+                                    👧 Choose Junior Head Girl (Select 1)
+                                </h3>
+                                <div class="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                                    <!-- Aaradhya -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="junior-head-girl" id="jhg-aaradhya" value="Aaradhya" class="sr-only" />
+                                        <label for="jhg-aaradhya" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Junior/aaradhaya.png" alt="Aaradhya" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Aaradhya</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-sky-800 bg-sky-100 px-3 py-0.5 rounded-full border border-sky-200 uppercase">Peace House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class V-A</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Arohi Gautam -->
+                                    <div class="candidate-card relative">
+                                        <input type="radio" name="junior-head-girl" id="jhg-arohi" value="Arohi Gautam" class="sr-only" />
+                                        <label for="jhg-arohi" class="block bg-white rounded-2xl p-5 border-2 border-slate-200 cursor-pointer hover:border-gold-400 hover:shadow-lg transition-all text-center relative group">
+                                            <div class="check-badge hidden absolute top-3 right-3 bg-gold-500 text-navy-950 w-7 h-7 rounded-full items-center justify-center text-xs font-bold shadow-md">✓</div>
+                                            <div class="relative w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-3">
+                                                <img src="../InvestitureCeremony/Junior/aarohi Gautam.png" alt="Arohi Gautam" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=300&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-md group-hover:scale-105 transition-transform duration-300" />
+                                            </div>
+                                            <h4 class="font-extrabold text-navy-900 text-lg">Arohi Gautam</h4>
+                                            <span class="inline-block mt-1.5 text-[11px] font-bold text-amber-800 bg-amber-100 px-3 py-0.5 rounded-full border border-amber-200 uppercase">Freedom House</span>
+                                            <span class="block text-xs font-bold text-slate-500 mt-1">Class V-A</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Action Container -->
+                    <div class="text-center mt-8">
+                        <button type="submit" id="submit-btn" class="px-10 py-4 bg-gold-500 text-navy-950 font-extrabold text-base rounded-xl hover:bg-gold-400 transition shadow-xl active:scale-95">
+                            🔒 Submit My Official Vote
+                        </button>
+                    </div>
+
+                </form>
+            </main>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-navy-950/80 backdrop-blur-sm hidden transition-all duration-300">
+            <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 text-center shadow-2xl border-4 border-emerald-500 transform transition-all scale-100">
+                <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-4xl shadow-inner">
+                    ✓
+                </div>
+                <h3 class="text-2xl font-black text-navy-900 mb-2">Vote Recorded!</h3>
+                <p class="text-slate-600 text-sm mb-6">
+                    Thank you, <span id="voter-success-name" class="font-bold text-navy-900"></span>! Your official ballot has been logged directly to Google Sheets.
+                </p>
+                <div class="bg-slate-100 rounded-2xl p-4 mb-6 text-xs text-slate-500 font-medium">
+                    Resetting form for next voter in <span id="countdown-timer" class="font-extrabold text-emerald-600 text-base">3</span> seconds...
+                </div>
+                <button type="button" onclick="resetFormForNextVoter()" class="w-full py-3 bg-navy-900 text-gold-400 font-extrabold text-sm rounded-xl hover:bg-navy-800 transition shadow-md">
+                    🗳️ Next Vote Now
+                </button>
+            </div>
+        </div>
+
+        <script>
+            // Paste your deployed Google Apps Script Exec URL here:
+            const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz3_MKIfZ6d53UgX2dgrOHrspFKXqh9btBiO6STm3jDjpmsQFaHx7EcoGXN9vaU5F5k0g/exec";
+
+            let isSubmitting = false;
+            let countdownInterval = null;
+
+            function handleClassChange() {
+                const selectedClass = document.getElementById("student-class").value;
+                const seniorSec = document.getElementById("senior-wing-section");
+                const juniorSec = document.getElementById("junior-wing-section");
+                const notice = document.getElementById("select-class-notice");
+
+                notice.classList.add("hidden");
+
+                const juniorClasses = ["Class III", "Class IV", "Class V"];
+
+                if (juniorClasses.includes(selectedClass)) {
+                    juniorSec.classList.remove("hidden");
+                    seniorSec.classList.add("hidden");
+                    clearSelections("senior-head-boy");
+                    clearSelections("senior-head-girl");
+                } else {
+                    seniorSec.classList.remove("hidden");
+                    juniorSec.classList.add("hidden");
+                    clearSelections("junior-head-boy");
+                    clearSelections("junior-head-girl");
+                }
+            }
+
+            function clearSelections(name) {
+                const radios = document.querySelectorAll(`input[name='${name}']`);
+                radios.forEach(radio => { radio.checked = false; });
+            }
+
+            function validateCandidateSelections() {
+                const selectedClass = document.getElementById("student-class").value;
+                const juniorClasses = ["Class III", "Class IV", "Class V"];
+
+                if (!selectedClass) {
+                    showErrorMessage("Please select a Class before submitting.");
+                    return false;
+                }
+
+                if (juniorClasses.includes(selectedClass)) {
+                    const jhb = document.querySelector("input[name='junior-head-boy']:checked");
+                    const jhg = document.querySelector("input[name='junior-head-girl']:checked");
+                    if (!jhb || !jhg) {
+                        showErrorMessage("Please select both a Junior Head Boy and a Junior Head Girl.");
+                        return false;
+                    }
+                } else {
+                    const shb = document.querySelector("input[name='senior-head-boy']:checked");
+                    const shg = document.querySelector("input[name='senior-head-girl']:checked");
+                    if (!shb || !shg) {
+                        showErrorMessage("Please select both a Senior Head Boy and a Senior Head Girl.");
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            function submitToGoogleSheet(event) {
+                event.preventDefault();
+
+                if (isSubmitting) return;
+
+                document.getElementById("error-notice").classList.add("hidden");
+
+                if (!validateCandidateSelections()) return;
+
+                const roll = document.getElementById("student-roll").value.trim();
+                const name = document.getElementById("student-name").value.trim();
+
+                isSubmitting = true;
+                const btn = document.getElementById("submit-btn");
+                btn.disabled = true;
+                btn.innerText = "Submitting Vote...";
+
+                const payload = {
+                    studentName: name,
+                    studentRoll: roll,
+                    studentClass: document.getElementById("student-class").value,
+                    studentSection: document.getElementById("student-section").value,
+                    seniorHeadBoy: document.querySelector("input[name='senior-head-boy']:checked")?.value || "N/A",
+                    seniorHeadGirl: document.querySelector("input[name='senior-head-girl']:checked")?.value || "N/A",
+                    juniorHeadBoy: document.querySelector("input[name='junior-head-boy']:checked")?.value || "N/A",
+                    juniorHeadGirl: document.querySelector("input[name='junior-head-girl']:checked")?.value || "N/A"
+                };
+
+                fetch(GOOGLE_SHEET_WEB_APP_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify(payload)
+                })
+                .then(res => res.json())
+                .then(result => {
+                    if (result.result === "error") {
+                        isSubmitting = false;
+                        btn.disabled = false;
+                        btn.innerText = "🔒 Submit My Official Vote";
+                        showErrorMessage("Server error: " + (result.error || "Unknown error while saving the vote."));
+                        return;
+                    }
+                    if (result.duplicate) {
+                        isSubmitting = false;
+                        btn.disabled = false;
+                        btn.innerText = "🔒 Submit My Official Vote";
+                        showErrorMessage("This Roll No / Admission No has already voted. Duplicate votes are not permitted.");
+                        return;
+                    }
+                    showSuccessModal(name);
+                })
+                .catch(err => {
+                    console.error("Submission error:", err);
+                    showErrorMessage("We couldn't reach the server, or it returned an unexpected response. Please check your internet connection and try again. (" + err.message + ")");
+                    isSubmitting = false;
+                    btn.disabled = false;
+                    btn.innerText = "🔒 Submit My Official Vote";
+                });
+            }
+
+            function showSuccessModal(studentName) {
+                document.getElementById("voter-success-name").innerText = studentName;
+                const modal = document.getElementById("success-modal");
+                modal.classList.remove("hidden");
+
+                let secondsLeft = 3;
+                document.getElementById("countdown-timer").innerText = secondsLeft;
+
+                if (countdownInterval) clearInterval(countdownInterval);
+
+                countdownInterval = setInterval(() => {
+                    secondsLeft--;
+                    if (secondsLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        resetFormForNextVoter();
+                    } else {
+                        document.getElementById("countdown-timer").innerText = secondsLeft;
+                    }
+                }, 1000);
+            }
+
+            function showErrorMessage(msg) {
+                const errBanner = document.getElementById("error-notice");
+                document.getElementById("error-message").innerText = msg;
+                errBanner.classList.remove("hidden");
+                errBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            function resetFormForNextVoter() {
+                if (countdownInterval) clearInterval(countdownInterval);
+
+                document.getElementById("success-modal").classList.add("hidden");
+                document.getElementById("error-notice").classList.add("hidden");
+
+                const form = document.getElementById("voting-form");
+                form.reset();
+
+                document.getElementById("senior-wing-section").classList.add("hidden");
+                document.getElementById("junior-wing-section").classList.add("hidden");
+                document.getElementById("select-class-notice").classList.remove("hidden");
+
+                isSubmitting = false;
+                const btn = document.getElementById("submit-btn");
+                btn.disabled = false;
+                btn.innerText = "🔒 Submit My Official Vote";
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Investiture Ceremony 2026 | Student Council • The Samarth School</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = { 
+                theme: { 
+                    extend: { 
+                        colors: { 
+                            navy: { 800: "#102A43", 900: "#0B192C", 950: "#030A16" }, 
+                            gold: { 400: "#FBBF24", 500: "#F59E0B", 600: "#D97706" }, 
+                            accentRed: { 600: "#DC2626", 700: "#B91C1C" } 
+                        } 
+                    } 
+                } 
+            };
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <style>
+            body { font-family: "Plus Jakarta Sans", sans-serif; }
+            .flip-card { perspective: 1000px; position: relative; }
+            .flip-card-inner { 
+                position: relative; 
+                width: 100%; 
+                height: 100%; 
+                transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+                transform-style: preserve-3d; 
+            }
+            .flip-card:hover .flip-card-inner, 
+            .flip-card.flipped .flip-card-inner { 
+                transform: rotateY(180deg); 
+            }
+            .flip-card-front, .flip-card-back { 
+                position: absolute; 
+                inset: 0;
+                width: 100%; 
+                height: 100%; 
+                -webkit-backface-visibility: hidden; 
+                backface-visibility: hidden; 
+                border-radius: 1rem; 
+                overflow: hidden;
+            }
+            .flip-card-front {
+                z-index: 2;
+                transform: rotateY(0deg);
+            }
+            .flip-card-back { 
+                transform: rotateY(180deg); 
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body class="bg-slate-50 text-slate-800 antialiased selection:bg-gold-500 selection:text-navy-950">
+        <!-- Top Announcement Bar -->
+        <div class="bg-navy-950 text-slate-300 text-xs py-1.5 px-4 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 text-center sm:text-left">
+                <div class="flex flex-wrap items-center gap-4 text-[11px] sm:text-xs">
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="mailto:infowr@thesamarthschool.edu.in" class="hover:text-gold-400 transition text-[11px] sm:text-xs">infowr@thesamarthschool.edu.in</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Header -->
+        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+                <div class="flex items-center space-x-2.5 sm:space-x-3.5">
+                    <img src="https://thesamarthschool.edu.in/wp-content/uploads/2023/08/logo1-1-1.png" alt="The Samarth School Logo" class="h-10 sm:h-14 w-auto object-contain" />
+                    <div>
+                        <span class="block text-xs sm:text-lg font-extrabold text-navy-900 tracking-tight leading-none">THE SAMARTH SCHOOL</span>
+                        <span class="text-[8px] sm:text-[11px] text-accentRed-600 font-bold tracking-wide uppercase mt-0.5 sm:mt-1 block">Wazirabad Road • "Learn to Lead"</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-700 items-center">
+                    <a href="../InvestitureCeremony/vote.html" class="hover:text-gold-600 transition-colors py-1">Home</a>
+                    <a href="#" class="hover:text-gold-600 transition-colors py-1">Events & Guidelines</a>
+                    <a href="#" class="hover:text-gold-600 transition-colors py-1">Event Gallery</a>
+                    <a href="#" class="hover:text-gold-600 transition-colors py-1">Results</a>
+                    <a href="../InvestitureCeremony/election.html" class="px-4 py-2 bg-navy-900 text-gold-400 rounded-lg hover:bg-navy-800 transition shadow-sm font-bold">VoteForChange</a>
+                </nav>
+
+                <!-- Hamburger Button (Mobile) -->
+                <button id="menu-toggle" aria-label="Toggle Navigation Menu" class="md:hidden p-2 text-slate-700 hover:text-navy-900 focus:outline-none">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 font-semibold text-slate-700 shadow-lg">
+                <a href="../InvestitureCeremony/vote.html" class="block py-2 hover:text-gold-600 transition-colors pl-2">Home</a>
+                <a href="../rules.html" class="block py-2 hover:text-gold-600 transition-colors pl-2">Events & Guidelines</a>
+                <a href="../gallery.html" class="block py-2 hover:text-gold-600 transition-colors pl-2">Event Gallery</a>
+                <a href="../result.html" class="block py-2 hover:text-gold-600 transition-colors pl-2">Results</a>
+                <a href="../InvestitureCeremony/election.html" class="block mt-2 px-4 py-2.5 bg-navy-900 text-gold-400 text-center rounded-lg hover:bg-navy-800 transition font-bold shadow-sm">VoteForChange</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative bg-navy-950 text-white py-8 sm:py-12 lg:py-14 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-900/90 to-navy-950"></div>
+            <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full text-[10px] sm:text-xs font-bold bg-gold-500/10 text-gold-400 border border-gold-500/30 mb-3 backdrop-blur-md tracking-wider">Leadership • Integrity • Service • Honor</div>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-2 sm:mb-3 text-white">Investiture <span class="text-gold-400 ml-1">Ceremony</span></h1>
+                <p class="text-base sm:text-xl font-bold text-slate-200 mb-3 sm:mb-4 tracking-wide">Student Council Appointments <span class="text-accentRed-600 font-extrabold ml-1">2026</span></p>
+                <p class="max-w-3xl mx-auto text-slate-300 text-xs sm:text-base leading-relaxed font-normal">Empowering tomorrow's visionaries today. The Investiture Ceremony marks the solemn occasion where newly elected Head Boys and Head Girls step forward to embrace responsibilities, uphold school values, and lead with exemplary distinction.</p>
+            </div>
+        </section>
+
+        <!-- Overview Quick Stats -->
+        <section class="-mt-6 sm:-mt-8 relative z-20 max-w-6xl mx-auto px-4 mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-white rounded-2xl shadow-xl border border-slate-200/80 p-3 sm:p-4 text-center divide-x-0 md:divide-x divide-slate-100">
+                <div class="p-2 group">
+                    <div class="counter-value text-2xl sm:text-4xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors" data-target="12" data-suffix="">0</div>
+                    <div class="text-[10px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Appointed Leaders</div>
+                </div>
+                <div class="p-2 group">
+                    <div class="counter-value text-2xl sm:text-4xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors" data-target="2" data-suffix="">0</div>
+                    <div class="text-[10px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Academic Wings</div>
+                </div>
+                <div class="p-2 group">
+                    <div class="counter-value text-2xl sm:text-4xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors" data-target="4" data-suffix="">0</div>
+                    <div class="text-[10px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">School Houses</div>
+                </div>
+                <div class="p-2 group">
+                    <div class="text-2xl sm:text-4xl font-extrabold text-navy-900 group-hover:text-gold-500 transition-colors">100%</div>
+                    <div class="text-[10px] sm:text-xs font-bold text-accentRed-600 mt-0.5 uppercase tracking-wider">Dedication</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- House Legend Bar -->
+        <section class="max-w-6xl mx-auto px-4 mb-8">
+            <div class="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-wrap items-center justify-around gap-3 text-xs font-bold">
+                <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-amber-500 inline-block shadow-sm"></span><span class="text-slate-700">Freedom House</span></div>
+                <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-emerald-500 inline-block shadow-sm"></span><span class="text-slate-700">Unity House</span></div>
+                <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-purple-600 inline-block shadow-sm"></span><span class="text-slate-700">Dignity House</span></div>
+                <div class="flex items-center gap-2"><span class="w-3.5 h-3.5 rounded-full bg-sky-500 inline-block shadow-sm"></span><span class="text-slate-700">Peace House</span></div>
+            </div>
+        </section>
+
+        <!-- SENIOR WING SECTION -->
+        <section class="py-6 lg:py-8 max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="text-[11px] font-bold text-accentRed-600 tracking-widest uppercase">Class XII Representatives</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">Senior Wing Leadership</h2>
+                <div class="w-12 h-1 bg-gold-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <!-- Senior Head Boys -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-2xl">👨‍🎓</span>
+                    <h3 class="text-xl font-extrabold text-navy-900">Head Boys <span class="text-sm font-semibold text-slate-500">(Senior Wing)</span></h3>
+                </div>
+                <div class="grid sm:grid-cols-2 max-w-4xl mx-auto gap-8">
+                    <!-- Senior Head Boy 1: Yash Panwar -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-amber-100 text-amber-800 border border-amber-300 uppercase tracking-wider">Freedom House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Senior/YashPawar.JPG" alt="Yash Panwar" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-xl sm:text-2xl">Yash Panwar</h4>
+                                    <p class="text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Boy</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class XII-B</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Senior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Yash Panwar</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Boy</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">XII - B</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-amber-400">Freedom</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Leading with commitment and empowering my peers to excel."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Senior Head Boy 2: Lakshya Choudhary -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300 uppercase tracking-wider">Unity House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Senior/LakshayChaudhary.JPG" alt="Lakshya Choudhary" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-xl sm:text-2xl">Lakshya Choudhary</h4>
+                                    <p class="text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Boy</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class XII-A</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Senior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Lakshya Choudhary</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Boy</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">XII - A</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-emerald-400">Unity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Unity is strength. Fostering togetherness across every discipline."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Senior Head Girls -->
+            <div>
+                <div class="flex items-center gap-3 mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-2xl">👩‍🎓</span>
+                    <h3 class="text-xl font-extrabold text-navy-900">Head Girls <span class="text-sm font-semibold text-slate-500">(Senior Wing)</span></h3>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Senior Head Girl 1: Vansikha Sharma -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-purple-100 text-purple-800 border border-purple-300 uppercase tracking-wider">Dignity House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Senior/VanshikaSharma.JPG" alt="Vansikha Sharma" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Vansikha Sharma</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Girl</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class XII-B</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Senior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Vansikha Sharma</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Girl</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">XII - B</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-purple-400">Dignity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Upholding dignity and compassion in every step of leadership."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Senior Head Girl 2: Dolfi Singh -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-sky-100 text-sky-800 border border-sky-300 uppercase tracking-wider">Peace House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Senior/dolfhi.JPG" alt="Dolfi Singh" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Dolfi Singh</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Girl</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class XII-A</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Senior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Dolfi Singh</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Girl</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">XII - A</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-sky-400">Peace</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Inspiring peace, order, and relentless academic dedication."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Senior Head Girl 3: Divya Yadav -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-sky-100 text-sky-800 border border-sky-300 uppercase tracking-wider">Peace House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Senior/divyaYadav.JPG" alt="Divya Yadav" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Divya Yadav</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Girl</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class XII-A</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Senior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Divya Yadav</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Girl</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">XII - A</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-sky-400">Peace</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Striving for excellence and supporting school traditions with honor."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Senior Head Girl 4: Tanishka Gupta -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300 uppercase tracking-wider">Unity House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Senior/TanishkaGupta.JPG" alt="Tanishka Gupta" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Tanishka Gupta</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Girl</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class XII-D</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Senior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Tanishka Gupta</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Girl</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">XII - D</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-emerald-400">Unity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Dedicated to driving positive change and leading by example."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separator -->
+        <section class="py-6 bg-slate-100/80 border-y border-slate-200/80">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <span class="text-[11px] font-bold text-accentRed-600 tracking-widest uppercase">Nurturing Young Torchbearers</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">Future Leaders of Samarth</h2>
+                <div class="w-12 h-1 bg-gold-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+        </section>
+
+        <!-- JUNIOR WING SECTION -->
+        <section class="py-6 lg:py-8 max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="text-[11px] font-bold text-gold-600 tracking-widest uppercase">Class V Representatives</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900 mt-0.5">Junior Wing Leadership</h2>
+                <div class="w-12 h-1 bg-accentRed-600 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <!-- Junior Head Boys -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-2xl">👦</span>
+                    <h3 class="text-xl font-extrabold text-navy-900">Head Boys <span class="text-sm font-semibold text-slate-500">(Junior Wing)</span></h3>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Junior Head Boy 1: Yakshith Kumar -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-purple-100 text-purple-800 border border-purple-300 uppercase tracking-wider">Dignity House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Junior/Yakshith%20Kuamar.png" alt="Yakshith Kumar" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Yakshith Kumar</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Boy</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class V-B</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Junior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Yakshith Kumar</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Boy</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">V - B</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-purple-400">Dignity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Enthusiastic to serve and represent Junior Wing students!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Junior Head Boy 2: Jainesh -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300 uppercase tracking-wider">Unity House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Junior/jainesh.png" alt="Jainesh" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Jainesh</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Boy</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class V-A</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Junior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Jainesh</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Boy</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">V - A</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-emerald-400">Unity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Working together to build discipline and spirit!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Junior Head Boy 3: Rudra Garg -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-sky-100 text-sky-800 border border-sky-300 uppercase tracking-wider">Peace House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Junior/rudraGarg.png" alt="Rudra Garg" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Rudra Garg</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Boy</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class V-A</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Junior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Rudra Garg</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Boy</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">V - A</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-sky-400">Peace</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Aiming high and promoting teamwork across activities."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Junior Head Girls -->
+            <div>
+                <div class="flex items-center gap-3 mb-6 border-b border-slate-200 pb-2">
+                    <span class="text-2xl">👧</span>
+                    <h3 class="text-xl font-extrabold text-navy-900">Head Girls <span class="text-sm font-semibold text-slate-500">(Junior Wing)</span></h3>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Junior Head Girl 1: Purvi -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300 uppercase tracking-wider">Unity House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Junior/purvi.png" alt="Purvi" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Purvi</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Girl</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class V-A</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Junior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Purvi</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Girl</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">V - A</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-emerald-400">Unity</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Bringing positivity and unity to our school family!"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Junior Head Girl 2: Aaradhya -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-sky-100 text-sky-800 border border-sky-300 uppercase tracking-wider">Peace House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Junior/aaradhaya.png" alt="Aaradhya" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Aaradhya</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Girl</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class V-A</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Junior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Aaradhya</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Girl</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">V - A</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-sky-400">Peace</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Inspiring peers through friendship, fairness, and excellence."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Junior Head Girl 3: Arohi Gautam -->
+                    <div class="flip-card h-[400px] w-full cursor-pointer">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-white rounded-2xl p-6 border border-slate-200/90 shadow-md flex flex-col items-center justify-between hover:border-gold-500/60 transition">
+                                <span class="px-3.5 py-1 rounded-full text-xs font-extrabold bg-amber-100 text-amber-800 border border-amber-300 uppercase tracking-wider">Freedom House</span>
+                                <div class="relative w-36 h-36 sm:w-40 sm:h-40 my-2">
+                                    <img src="../InvestitureCeremony/Junior/aarohi Gautam.png" alt="Arohi Gautam" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80'" class="w-full h-full rounded-full object-cover ring-4 ring-gold-500 shadow-lg" />
+                                </div>
+                                <div class="text-center">
+                                    <h4 class="font-extrabold text-navy-900 text-lg sm:text-xl">Arohi Gautam</h4>
+                                    <p class="text-xs sm:text-sm font-bold text-accentRed-600 uppercase tracking-wider mt-0.5">Head Girl</p>
+                                    <span class="text-xs font-bold text-slate-500 mt-1 block">Class V-A</span>
+                                </div>
+                                <span class="text-xs font-bold text-gold-600 bg-gold-50 border border-gold-200 px-4 py-1 rounded-full uppercase tracking-wider">Tap for Profile ↺</span>
+                            </div>
+                            <div class="flip-card-back bg-navy-900 text-white rounded-2xl p-6 border-2 border-gold-500 shadow-2xl flex flex-col items-center justify-between text-center">
+                                <div class="w-full flex flex-col items-center">
+                                    <span class="text-xs font-extrabold tracking-widest text-gold-400 uppercase">Junior Leadership</span>
+                                    <h4 class="text-xl font-extrabold text-white mt-1">Arohi Gautam</h4>
+                                    <div class="w-10 h-0.5 bg-gold-500 my-2"></div>
+                                    <div class="space-y-2.5 w-full text-xs sm:text-sm mt-3 text-slate-200">
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Designation:</span>
+                                            <span class="font-bold text-gold-400">Head Girl</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">Class & Sec:</span>
+                                            <span class="font-bold text-white">V - A</span>
+                                        </div>
+                                        <div class="bg-navy-950/80 p-2.5 rounded-lg border border-slate-700/60 flex justify-between">
+                                            <span class="text-slate-400">House:</span>
+                                            <span class="font-bold text-amber-400">Freedom</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-300 italic">"Leading with enthusiasm and supporting every student's journey!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Oath Banner -->
+        <section class="max-w-6xl mx-auto px-4 my-8">
+            <div class="bg-gradient-to-r from-navy-900 via-navy-950 to-navy-900 text-white rounded-2xl p-6 shadow-xl border-2 border-gold-500/50 text-center">
+                <span class="text-3xl sm:text-4xl block mb-2">📜</span>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-gold-400">The Student Council Pledge</span>
+                <h3 class="text-lg sm:text-2xl font-extrabold text-white mt-1 mb-2">"To Serve with Integrity, Lead with Passion, and Inspire with Excellence"</h3>
+                <p class="max-w-2xl mx-auto text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">We solemnly promise to uphold the ethos and traditions of The Samarth School, maintaining dignity, unity, and discipline across all wings.</p>
+            </div>
+        </section>
+
+        <!-- Detailed Footer -->
+        <footer id="contact" class="bg-navy-950 text-slate-400 py-8 border-t-2 border-gold-500/30">
+            <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-5 pb-5 border-b border-slate-800">
+                <div>
+                    <h3 class="text-base font-bold text-white mb-2">The Samarth School</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-2.5">Main Wazirabad Road, Adjacent to West Jyoti Nagar, Delhi – 110093</p>
+                    <div class="text-xs space-y-0.5">
+                        <p><strong class="text-slate-300">Affiliation No:</strong> 2730096</p>
+                        <p><strong class="text-slate-300">School Code:</strong> 85056</p>
+                        <p><strong class="text-slate-300">School ID:</strong> 1106196</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold text-white mb-2">Contact Us</h3>
+                    <ul class="text-xs space-y-1.5">
+                        <li><strong class="text-slate-300">Enquiry Phone:</strong> +91 8287555045</li>
+                        <li><strong class="text-slate-300">Admission Phone:</strong> 8826546178</li>
+                        <li><strong class="text-slate-300">Landline:</strong> 011-35005440</li>
+                        <li><strong class="text-slate-300">Email:</strong> <a href="mailto:infowr@thesamarthschool.edu.in" class="text-gold-400 hover:underline">infowr@thesamarthschool.edu.in</a></li>
+                    </ul>
+                </div>
+                <div class="sm:col-span-2 md:col-span-1">
+                    <h3 class="text-base font-bold text-white mb-2">Quick Links & Socials</h3>
+                    <div class="flex flex-col space-y-1.5 text-xs font-semibold mb-2.5">
+                        <a href="https://thesamarthschool.edu.in" target="_blank" class="hover:text-white transition">› Official Website</a>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-white">
+                        <a href="https://www.facebook.com/thesamarthschool" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">Facebook</a>
+                        <a href="https://www.instagram.com/thesamarth_school/" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">Instagram</a>
+                        <a href="https://youtube.com/@thesamarthschoolloniwr" target="_blank" class="bg-navy-900 px-3 py-1 rounded border border-slate-800 hover:border-gold-500 transition">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500">© 2026 The Samarth School - Wazirabad Road. All rights reserved.</div>
+        </footer>
+
+        <!-- Navigation and Animation Scripts -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // Mobile Hamburger Toggle
+                const menuToggle = document.getElementById("menu-toggle");
+                const mobileMenu = document.getElementById("mobile-menu");
+                const menuIcon = document.getElementById("menu-icon");
+                const closeIcon = document.getElementById("close-icon");
+
+                if (menuToggle && mobileMenu) {
+                    menuToggle.addEventListener("click", () => {
+                        mobileMenu.classList.toggle("hidden");
+                        menuIcon.classList.toggle("hidden");
+                        closeIcon.classList.toggle("hidden");
+                    });
+                }
+
+                // Touch support for flip cards on touch devices
+                const flipCards = document.querySelectorAll(".flip-card");
+                flipCards.forEach(card => {
+                    card.addEventListener("click", () => {
+                        if (window.innerWidth < 1024) {
+                            card.classList.toggle("flipped");
+                        }
+                    });
+                });
+
+                // Counter Animation Script
+                const counters = document.querySelectorAll(".counter-value");
+                const duration = 1500;
+                const startCounting = (el) => {
+                    const target = parseInt(el.getAttribute("data-target"), 10);
+                    const suffix = el.getAttribute("data-suffix") || "";
+                    const startTime = performance.now();
+                    const updateCount = (currentTime) => {
+                        const elapsedTime = currentTime - startTime;
+                        const progress = Math.min(elapsedTime / duration, 1);
+                        const easeOutProgress = 1 - Math.pow(1 - progress, 2);
+                        el.innerText = Math.floor(easeOutProgress * target) + suffix;
+                        if (progress < 1) { requestAnimationFrame(updateCount); } else { el.innerText = target + suffix; }
+                    };
+                    requestAnimationFrame(updateCount);
+                };
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach((entry) => { if (entry.isIntersecting) { startCounting(entry.target); observer.unobserve(entry.target); } });
+                }, { threshold: 0.4 });
+                counters.forEach((counter) => observer.observe(counter));
+            });
+        </script>
+    </body>
+</html>
