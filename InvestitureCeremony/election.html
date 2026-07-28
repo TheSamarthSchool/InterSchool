@@ -34,6 +34,29 @@
                 transform: scale(1.05);
                 border-color: #D97706;
             }
+            .voter-type-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+            .voter-type-option label {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 0.85rem 1rem;
+                border: 2px solid #CBD5E1;
+                border-radius: 0.75rem;
+                font-weight: 800;
+                font-size: 0.9rem;
+                color: #334155;
+                cursor: pointer;
+                background: #fff;
+                transition: all 0.15s ease;
+            }
+            .voter-type-option label:hover { border-color: #FBBF24; }
+            .voter-type-option input[type="radio"]:checked + label {
+                border-color: #F59E0B;
+                background-color: #FFFBEB;
+                color: #0B192C;
+                box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.25);
+            }
         </style>
     </head>
     <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
@@ -77,19 +100,35 @@
                             <span class="w-7 h-7 rounded-full bg-navy-900 text-gold-400 text-xs flex items-center justify-center font-bold">1</span>
                             Voter Authentication Details
                         </h2>
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
+                            <div class="sm:col-span-2 lg:col-span-4">
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Voter Type <span class="text-accentRed-600">*</span></label>
+                                <div class="flex gap-3">
+                                    <div class="voter-type-option flex-1 relative">
+                                        <input type="radio" name="voter-type" id="voter-type-student" value="Student" checked onchange="handleVoterTypeChange()" />
+                                        <label for="voter-type-student">🎒 Student</label>
+                                    </div>
+                                    <div class="voter-type-option flex-1 relative">
+                                        <input type="radio" name="voter-type" id="voter-type-teacher" value="Teacher" onchange="handleVoterTypeChange()" />
+                                        <label for="voter-type-teacher">🍎 Teacher</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
                             <div>
                                 <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Full Name <span class="text-accentRed-600">*</span></label>
-                                <input type="text" id="student-name" required placeholder="Enter student full name" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none" />
+                                <input type="text" id="student-name" required placeholder="Enter full name" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none" />
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Roll No / Admission No <span class="text-accentRed-600">*</span></label>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider" id="roll-label">Roll No / Admission No <span class="text-accentRed-600">*</span></label>
                                 <input type="text" id="student-roll" required placeholder="e.g. SS-2031" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none" />
                                 <p class="text-[10px] text-slate-400 mt-1">Used only to prevent duplicate voting.</p>
                             </div>
 
-                            <div>
+                            <div id="class-field-wrapper">
                                 <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Class <span class="text-accentRed-600">*</span></label>
                                 <select id="student-class" required onchange="handleClassChange()" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none font-semibold text-slate-800">
                                     <option value="" disabled selected>Select Class</option>
@@ -106,7 +145,7 @@
                                 </select>
                             </div>
 
-                            <div>
+                            <div id="section-field-wrapper">
                                 <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Section <span class="text-accentRed-600">*</span></label>
                                 <select id="student-section" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none font-semibold text-slate-800">
                                     <option value="" disabled selected>Select Section</option>
@@ -115,6 +154,11 @@
                                     <option value="Section C">Section C</option>
                                     <option value="Section D">Section D</option>
                                 </select>
+                            </div>
+
+                            <div id="department-field-wrapper" class="hidden">
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Department / Subject <span class="text-accentRed-600">*</span></label>
+                                <input type="text" id="teacher-department" placeholder="e.g. Mathematics" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-gold-500 outline-none" />
                             </div>
                         </div>
                     </div>
@@ -383,11 +427,60 @@
             let isSubmitting = false;
             let countdownInterval = null;
 
+            function getVoterType() {
+                return document.querySelector("input[name='voter-type']:checked")?.value || "Student";
+            }
+
+            function handleVoterTypeChange() {
+                const isTeacher = getVoterType() === "Teacher";
+                const seniorSec = document.getElementById("senior-wing-section");
+                const juniorSec = document.getElementById("junior-wing-section");
+                const notice = document.getElementById("select-class-notice");
+                const classWrapper = document.getElementById("class-field-wrapper");
+                const sectionWrapper = document.getElementById("section-field-wrapper");
+                const deptWrapper = document.getElementById("department-field-wrapper");
+                const classSelect = document.getElementById("student-class");
+                const sectionSelect = document.getElementById("student-section");
+                const rollLabel = document.getElementById("roll-label");
+
+                if (isTeacher) {
+                    // Teachers aren't tied to a class, so hide class/section
+                    // and show both wings so they can vote for every post.
+                    classWrapper.classList.add("hidden");
+                    sectionWrapper.classList.add("hidden");
+                    deptWrapper.classList.remove("hidden");
+                    classSelect.required = false;
+                    sectionSelect.required = false;
+                    rollLabel.innerHTML = 'Employee ID <span class="text-accentRed-600">*</span>';
+
+                    notice.classList.add("hidden");
+                    seniorSec.classList.remove("hidden");
+                    juniorSec.classList.remove("hidden");
+                } else {
+                    classWrapper.classList.remove("hidden");
+                    sectionWrapper.classList.remove("hidden");
+                    deptWrapper.classList.add("hidden");
+                    classSelect.required = true;
+                    sectionSelect.required = true;
+                    rollLabel.innerHTML = 'Roll No / Admission No <span class="text-accentRed-600">*</span>';
+
+                    if (!classSelect.value) {
+                        notice.classList.remove("hidden");
+                        seniorSec.classList.add("hidden");
+                        juniorSec.classList.add("hidden");
+                    } else {
+                        handleClassChange();
+                    }
+                }
+            }
+
             function handleClassChange() {
                 const selectedClass = document.getElementById("student-class").value;
                 const seniorSec = document.getElementById("senior-wing-section");
                 const juniorSec = document.getElementById("junior-wing-section");
                 const notice = document.getElementById("select-class-notice");
+
+                if (getVoterType() === "Teacher") return;
 
                 notice.classList.add("hidden");
 
@@ -412,6 +505,20 @@
             }
 
             function validateCandidateSelections() {
+                const isTeacher = getVoterType() === "Teacher";
+
+                if (isTeacher) {
+                    const shb = document.querySelector("input[name='senior-head-boy']:checked");
+                    const shg = document.querySelector("input[name='senior-head-girl']:checked");
+                    const jhb = document.querySelector("input[name='junior-head-boy']:checked");
+                    const jhg = document.querySelector("input[name='junior-head-girl']:checked");
+                    if (!shb || !shg || !jhb || !jhg) {
+                        showErrorMessage("Please select a Head Boy and Head Girl for both the Senior and Junior wings.");
+                        return false;
+                    }
+                    return true;
+                }
+
                 const selectedClass = document.getElementById("student-class").value;
                 const juniorClasses = ["Class III", "Class IV", "Class V"];
 
@@ -457,12 +564,16 @@
                 btn.innerText = "Submitting Vote...";
 
                 // UPDATED PAYLOAD: Generates local submission timestamp
+                const isTeacher = getVoterType() === "Teacher";
+
                 const payload = {
                     timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+                    voterType: getVoterType(),
                     studentName: name,
                     studentRoll: roll,
-                    studentClass: document.getElementById("student-class").value,
-                    studentSection: document.getElementById("student-section").value,
+                    studentClass: isTeacher ? "N/A" : document.getElementById("student-class").value,
+                    studentSection: isTeacher ? "N/A" : document.getElementById("student-section").value,
+                    teacherDepartment: isTeacher ? document.getElementById("teacher-department").value.trim() : "N/A",
                     seniorHeadBoy: document.querySelector("input[name='senior-head-boy']:checked")?.value || "N/A",
                     seniorHeadGirl: document.querySelector("input[name='senior-head-girl']:checked")?.value || "N/A",
                     juniorHeadBoy: document.querySelector("input[name='junior-head-boy']:checked")?.value || "N/A",
@@ -541,6 +652,12 @@
                 document.getElementById("senior-wing-section").classList.add("hidden");
                 document.getElementById("junior-wing-section").classList.add("hidden");
                 document.getElementById("select-class-notice").classList.remove("hidden");
+                document.getElementById("class-field-wrapper").classList.remove("hidden");
+                document.getElementById("section-field-wrapper").classList.remove("hidden");
+                document.getElementById("department-field-wrapper").classList.add("hidden");
+                document.getElementById("student-class").required = true;
+                document.getElementById("student-section").required = true;
+                document.getElementById("roll-label").innerHTML = 'Roll No / Admission No <span class="text-accentRed-600">*</span>';
 
                 isSubmitting = false;
                 const btn = document.getElementById("submit-btn");
